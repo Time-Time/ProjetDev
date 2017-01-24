@@ -3,6 +3,7 @@
     if ($_POST['action'] == 'deconnexion') {
         echo '{success : true}';
         deconnexion();
+        header('Location : index.php');
     }
 
     function deconnexion() {

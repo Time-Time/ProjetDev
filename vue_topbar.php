@@ -2,9 +2,9 @@
 	<a class="topbar-logo"></a>
 	<nav class="topbar-menu">
 		<a href="index.php">Accueil</a>
-		<a href="#">Jonglage</a>
-		<a href="#">FlipyFlux</a>
-		<a href="#">FlowToys</a>
+		<a href="vue_discipline.php">Jonglage</a>
+		<a href="vue_discipline.php">FlipyFlux</a>
+		<a href="vue_discipline.php">FlowToys</a>
 		<a href="vue_contact.php">Contact</a>
 	</nav>
 	<!-- if $session is set alors on affiche le pseudo a la place -->

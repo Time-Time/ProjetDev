@@ -6,7 +6,6 @@ $(document).ready(function(){
     		data:{action:'deconnexion'},
     		success: function(result) {
     			console.log(result);
-    			window.location.reload();
     		},
     		error: function(html) {
     			alert('erreur');

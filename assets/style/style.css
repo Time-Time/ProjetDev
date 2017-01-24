@@ -134,6 +134,19 @@ body {
     margin-bottom: 1rem;
 }
 
+.discipline-container {
+	width: 100%;
+	height: 50px;
+	padding : 10px 10px;
+	background-color: blue;
+	border:solid;
+}
+
+.img-discipline {
+	width: 20px;
+	height: 20px;
+}
+
 .title-container {
 	position: relative;
     padding: 25px 0;
