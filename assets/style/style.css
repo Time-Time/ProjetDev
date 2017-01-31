@@ -20,11 +20,13 @@ a, article, body, footer, form, h1, h2, h3, header, html, nav, p, section, span,
 }
 
 html {
-	min-height: 100%;
+	height: 100%;
 	width: 100%;
 }
 
 body {
+	position: relative;
+	min-height: 100%;
 	background: url('../img/grey-background.png');
 	background-size: 100% 100%;
 	margin-top:66px;
@@ -38,7 +40,7 @@ body {
 
 .container-form {
 	overflow: hidden;
-    padding : 60px 100px;
+    padding : 60px 300px;
 }
 
 .form-control {
@@ -136,15 +138,16 @@ body {
 
 .discipline-container {
 	width: 100%;
-	height: 50px;
+	height: auto;
 	padding : 10px 10px;
+	margin: 0 20px 30px 0;
 	background-color: blue;
 	border:solid;
 }
 
 .img-discipline {
-	width: 20px;
-	height: 20px;
+	width: 40px;
+	height: 40px;
 }
 
 .title-container {
@@ -162,7 +165,7 @@ body {
 	margin: 0 auto;
    /*min-width:80vw;*/
    /*min-height:800px;*/
-   width:800px;
+   width:1000px;
 }
 
 .main-form {
@@ -183,10 +186,13 @@ body {
 footer {
 	position: absolute;
 	bottom: 0;
+	right: 0;
+	left: 0;
 	width: 100%;
 	height: 50px;
     margin-top: 50px;
-    padding: 25px 0;
+    padding-top: 15px;
+    text-align: center;
     font-size: .9em;
     background-color: #f9f9f9;
     border-top: 3px solid #ececec;

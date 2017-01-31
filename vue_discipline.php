@@ -1,4 +1,5 @@
-	<?php include("vue_head.php"); ?>
+	<?php 
+	include("vue_head.php"); ?>
 	<body>
 		<?php include("vue_topbar.php"); ?>
 		<div class="container title-container">
@@ -7,6 +8,34 @@
 			</div>
 		</div>
 		<div id="main" style="background-color: green">
+			<div class="discipline-container">
+				<img class="img-discipline" src="assets/img/contactBall.jpg" width="200px" height="150px" />
+				aie ça fait mal !
+			</div>
+			<div class="discipline-container">
+				<img class="img-discipline" src="assets/img/contactBall.jpg" width="200px" height="150px" />
+				aie ça fait mal !
+			</div>
+			<div class="discipline-container">
+				<img class="img-discipline" src="assets/img/contactBall.jpg" width="200px" height="150px" />
+				aie ça fait mal !
+			</div>
+			<div class="discipline-container">
+				<img class="img-discipline" src="assets/img/contactBall.jpg" width="200px" height="150px" />
+				aie ça fait mal !
+			</div>
+			<div class="discipline-container">
+				<img class="img-discipline" src="assets/img/contactBall.jpg" width="200px" height="150px" />
+				aie ça fait mal !
+			</div>
+			<div class="discipline-container">
+				<img class="img-discipline" src="assets/img/contactBall.jpg" width="200px" height="150px" />
+				aie ça fait mal !
+			</div>
+			<div class="discipline-container">
+				<img class="img-discipline" src="assets/img/contactBall.jpg" width="200px" height="150px" />
+				aie ça fait mal !
+			</div>
 			<div class="discipline-container">
 				<img class="img-discipline" src="assets/img/contactBall.jpg" width="200px" height="150px" />
 				aie ça fait mal !

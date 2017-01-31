@@ -3,11 +3,11 @@
 		<?php include("vue_topbar.php"); ?>
 		<div class="container title-container">
 			<div class="container">
-				<h1 class="title">Bienvenue sur Notre site !</h1>
+				<h1 class="title">Bienvenue sur Notre site, <?php include('controleur/ctrl_accueil.php'); ?> !</h1>
 			</div>
 		</div>
 		<div id="main">
-			<?php include('controleur/ctrl_accueil.php'); ?>
+			
 				<!-- CONTENU DU SITE -->
 
 		</div>

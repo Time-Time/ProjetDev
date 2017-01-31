@@ -1,5 +1,5 @@
 <!-- http://ecolenationaledecirque.ca/fr/ -->
-<!-- <?phpsession_start(); ?> -->
+<?php session_start(); ?>
 <!doctype html>
 	<html>
 		<head>
