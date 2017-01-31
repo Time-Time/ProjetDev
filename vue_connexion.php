@@ -8,7 +8,7 @@
 		</div>
 		<div id="main">
 			<div class="container container-form">
-				<form id="signin" class="form-signin" action="index.php" charset="UTF-8" method="post">
+				<form id="signin" class="form-signin" charset="UTF-8" method="POST">
 					<div class="form-group">
 						<input class="form-control" type="text" name="pseudo" id="user_username" placeholder="Nom d'utilisateur" required="required" autofocus="autofocus">
 					</div>
@@ -19,6 +19,25 @@
 				</form>
 			</div>
 		</div>
+		<?php
+			$bdd = new PDO('mysql:host=localhost;dbname=bf_webdev;charset=utf8', 'root', '');
+			if(isset($_POST["pseudo"]))
+			{				
+				$req = $bdd->query('SELECT * FROM utilisateur WHERE ut_pseudo="'.$_POST["pseudo"].'" ');				
+				//$nbrLigne = $req->rowCount();	
+				$donnees = $req->fetch();
+				$nombreLigne = count($donnees);
+				echo $nombreLigne;
+				if($nombreLigne<=1)
+				{
+					echo "Connexion Echoue";
+				}
+				else
+				{
+					echo "Reussi flux".$_POST["pseudo"];
+				}
+			}
+		?>
 	</body>
 	<?php require_once("vue_footer.php"); ?>
 

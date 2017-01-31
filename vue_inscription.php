@@ -6,6 +6,12 @@
 				<h1 class="title">Inscription</h1>
 			</div>
 		</div>
+		<?php
+			$bdd = new PDO('mysql:host=localhost;dbname=bf_webdev;charset=utf8', 'root', '');
+			$req = $bdd->query('SELECT * FROM utilisateur');
+			$donnees = $req->fetch();
+			var_dump($donnees);
+		?>
 		<div id="main">
 			<div class="container container-form">
 				<form id="signin" class="form-signin" action="#" charset="UTF-8" method="post">
@@ -22,5 +28,6 @@
 				</form>
 			</div>
 		</div>
+		
 	</body>
 	<?php require_once("vue_footer.php"); ?>
