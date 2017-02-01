@@ -1,8 +1,8 @@
-	<?php require_once("vue_head.php"); ?>
+<?php require_once("vue_head.php"); ?>
 	<body>
 		<?php
 			require_once("vue_topbar.php");
-			require_once("connexion.php")
+			require_once("controleurs/ctrl_connexion.php")
 		?>
 		<div class="container title-container">
 			<div class="container">
@@ -11,7 +11,7 @@
 		</div>
 		<div id="main">
 			<div class="container container-form">
-				<form id="signin" class="form-signin" charset="UTF-8" method="POST">
+				<form id="signin" class="form-signin" charset="UTF-8" action="index.php" method="POST">
 					<div class="form-group">
 						<input class="form-control" type="text" name="pseudo" id="user_username" placeholder="Nom d'utilisateur" required="required" autofocus="autofocus">
 					</div>
@@ -22,13 +22,5 @@
 				</form>
 			</div>
 		</div>
-		<?php inscription(); ?>
 	</body>
 	<?php require_once("vue_footer.php"); ?>
-
-
-
-
-
-
-
