@@ -1,13 +1,15 @@
 <?php
 
+	function test()
+	{
+		$bdd = new PDO('mysql:host=localhost;dbname=bf_webdev;charset=utf8', 'root', '');
+		$req = $bdd->query('SELECT * FROM utilisateur');
+		$donnees = $req->fetch();
+		svar_dump($donnees);
+	}
 
-	$bdd = new PDO('mysql:host=localhost;dbname=bf_webdev;charset=utf8', 'root', '');
-	$req = $bdd->query('SELECT * FROM utilisateur');
-	$donnees = $req->fetch();
-	svar_dump($donnees);
 
-
-	function inscription()s
+	function inscription()
 	{
 		try
 		{
@@ -23,14 +25,13 @@
 			$req = $bdd->query('CALL ps_utilisateur_INSERT_utilisateur("Thomas", "aze", 0)');
 
 			// On affiche chaque entrée une à une
-			while ($donnees = $req->fetch())
-			{
-				echo $donnees['ut_pseudo'];
-				echo $donnees['ut_mdp'];
-				echo $donnees['ut_droit'];
-			}
+			// while ($donnees = $req->fetch())
+			// {
+				// echo $donnees['ut_pseudo'];
+				// echo $donnees['ut_mdp'];
+				// echo $donnees['ut_droit'];
+			// }
+			$req->closeCursor(); // Termine le traitement de la requête
 		}
-
-		$req->closeCursor(); // Termine le traitement de la requête
 	}
 ?>

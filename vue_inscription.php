@@ -6,14 +6,11 @@
 				<h1 class="title">Inscription</h1>
 			</div>
 		</div>
-
-
 		<?php 
 			// On inclu le fichier qui fera les controles liés à l'inscriptions
 			require("controleurs/ctrl_inscription.php");
 
 		?>
-
 		<div id="main">
 			<div class="container container-form">
 				<form id="signin" class="form-signin" action="#" charset="UTF-8" method="post">
@@ -27,9 +24,10 @@
 						<input class="form-control" type="password" name="confirm" id="password" placeholder="Confirmer mot de passe" required="required" autofocus="autofocus">
 					</div>
 					<input id="btn_inscription" class="btn btn-block" type="submit" name="commit" value="s'inscrire">
+						<?php  inscription(); ?>
+					</input>
 				</form>
 			</div>
 		</div>
-		
 	</body>
 	<?php require_once("vue_footer.php"); ?>
