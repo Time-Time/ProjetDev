@@ -82,14 +82,31 @@
 		SELECT ut_id, ut_pseudo FROM utilisateur;
 		
 --	PROCEDURE ps_utilisateur_INSERT_utilisateur(pseudoUtilisateur, motDePassseUtilisateur, dateUtilisateur)
-	DROP PROCEDURE IF EXISTS ps_utilisateur_INSERT_utilisateur;
-	CREATE PROCEDURE ps_utilisateur_INSERT_utilisateur(
-		IN pseudoUtilisateur CHAR(30),
-		IN motDePassseUtilisateur CHAR(30),
-		IN dateUtilisateur DATE)
-		COMMENT 'Insère un nouvel utilisateur.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
-		INSERT INTO utilisateur (ut_pseudo, ut_mdp, ut_droit)
-			VALUES(pseudoUtilisateur, motDePassseUtilisateur, dateUtilisateur);		
+--DROP PROCEDURE IF EXISTS ps_utilisateur_INSERT_utilisateur;
+--CREATE PROCEDURE `ps_utilisateur_INSERT_utilisateur`(
+--	IN `pseudoUtilisateur` CHAR(30),
+--	IN `motDePassseUtilisateur` CHAR(30),
+--	IN `droitUtilisateur` INT),
+--    OUT `validation` CHAR(200))
+--	COMMENT 'Insère un nouvel utilisateur dans la base si le pseudo fourni est disponible.'
+--	NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
+--
+--	IF (1 > 0) THEN
+--		INSERT INTO utilisateur (ut_pseudo, ut_mdp, ut_droit)
+--			VALUES(pseudoUtilisateur, motDePassseUtilisateur, droitUtilisateur)
+--		SET validation = 'L''utilisateur a été créé.';
+--
+--	ELSE
+--        SET validation = 'Ce pseudo existe déjà.';
+--	END IF;
+--    SELECT validation;
+
+
+
+
+
+
+			
 			
 --	PROCEDURE ps_utilisateur_DELETE_utilisateur(idUtilisateur)
 	DROP PROCEDURE IF EXISTS ps_utilisateur_DELETE_utilisateur;
