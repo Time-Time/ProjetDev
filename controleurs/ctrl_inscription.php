@@ -1,5 +1,13 @@
 <?php
-	function inscription()
+
+
+	$bdd = new PDO('mysql:host=localhost;dbname=bf_webdev;charset=utf8', 'root', '');
+	$req = $bdd->query('SELECT * FROM utilisateur');
+	$donnees = $req->fetch();
+	svar_dump($donnees);
+
+
+	function inscription()s
 	{
 		try
 		{
@@ -7,14 +15,14 @@
 		}
 		catch (Exception $e)
 		{
-			// Connexion à la base échouée.
+			// Connexion Ã  la base Ã©chouÃ©e.
 			die('Erreur : ' . $e->getMessage());
 		}
 		if(isset($_POST["pseudo"]))
 		{				
 			$req = $bdd->query('CALL ps_utilisateur_INSERT_utilisateur("Thomas", "aze", 0)');
 
-			// On affiche chaque entrée une à une
+			// On affiche chaque entrÃ©e une Ã  une
 			while ($donnees = $req->fetch())
 			{
 				echo $donnees['ut_pseudo'];
@@ -23,11 +31,6 @@
 			}
 		}
 
-		$req->closeCursor(); // Termine le traitement de la requête
+		$req->closeCursor(); // Termine le traitement de la requÃªte
 	}
 ?>
-
-
-
-
-
