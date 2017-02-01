@@ -1,6 +1,9 @@
 	<?php require_once("vue_head.php"); ?>
 	<body>
-		<?php require_once("vue_topbar.php"); ?>
+		<?php
+			require_once("vue_topbar.php");
+			require_once("connexion.php")
+		?>
 		<div class="container title-container">
 			<div class="container">
 				<h1 class="title">Connexion</h1>
@@ -19,25 +22,7 @@
 				</form>
 			</div>
 		</div>
-		<?php
-			$bdd = new PDO('mysql:host=localhost;dbname=bf_webdev;charset=utf8', 'root', '');
-			if(isset($_POST["pseudo"]))
-			{				
-				$req = $bdd->query('SELECT * FROM utilisateur WHERE ut_pseudo="'.$_POST["pseudo"].'" ');				
-				//$nbrLigne = $req->rowCount();	
-				$donnees = $req->fetch();
-				$nombreLigne = count($donnees);
-				echo $nombreLigne;
-				if($nombreLigne<=1)
-				{
-					echo "Connexion Echoue";
-				}
-				else
-				{
-					echo "Reussi flux".$_POST["pseudo"];
-				}
-			}
-		?>
+		<?php inscription(); ?>
 	</body>
 	<?php require_once("vue_footer.php"); ?>
 
