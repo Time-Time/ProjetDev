@@ -24,7 +24,7 @@
 						<input class="form-control" type="password" name="confirm" id="password" placeholder="Confirmer mot de passe" required="required" autofocus="autofocus">
 					</div>
 					<input id="btn_inscription" class="btn btn-block" type="submit" name="commit" value="s'inscrire">
-						<?php  inscription(); ?>
+					<?php  inscription(); ?>
 					</input>
 				</form>
 			</div>

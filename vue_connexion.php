@@ -19,6 +19,7 @@
 						<input class="form-control" type="password" name="password" id="user_password" placeholder="Mot de passe" required="required" autofocus="autofocus">
 					</div>
 					<input class="btn btn-block" type="submit" name="commit" value="Connexion">
+					<?php  connecterUtilisateur(); ?>
 				</form>
 			</div>
 		</div>
