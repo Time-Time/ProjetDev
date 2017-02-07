@@ -191,3 +191,10 @@
 --			END IF
 --			SET @retour = 1;
 --			SELECT @retour;
+
+
+
+
+
+--	Si besoin faire
+--	SET FOREIGN_KEY_CHECKS = ON;
