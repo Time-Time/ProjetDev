@@ -57,7 +57,11 @@
 -- ---------------------------------------------------------------------------- --
 --							   PROCEDURES STOCKEES		 					    --
 -- ---------------------------------------------------------------------------- --
-	
+
+--	------------------------------ ----------------- ------------------------------ --
+--	                               TABLE COMMENTAIRE                                --
+--	------------------------------ ----------------- ------------------------------ --
+
 --	PROCEDURE ps_commentaire_GET_commentaireObjet(idObjet)
 	DROP PROCEDURE IF EXISTS ps_commentaire_GET_commentaireObjet;
 	CREATE PROCEDURE ps_commentaire_GET_commentaireObjet(
@@ -74,6 +78,10 @@
 		COMMENT 'Insère un nouveau commentaire dans la table des commentaires.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
 		INSERT INTO commentaire (com_auteurId, com_objetId, com_description, com_date)
 			VALUES(idObjet, libelleObjet, descriptionObjet, CURRENT_DATE());
+			
+--	---------------------------- ----------------- ---------------------------- --
+--								 TABLE UTILISATEUR 								--
+--	---------------------------- ----------------- ---------------------------- --
 				
 --	PROCEDURE ps_utilisateur_GET_utilisateurListe()
 	DROP PROCEDURE IF EXISTS ps_utilisateur_GET_utilisateurListe;
@@ -81,6 +89,70 @@
 		COMMENT 'Renvoie la liste de tous les utilisateurs inscrit sur le site.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
 		SELECT ut_id, ut_pseudo FROM utilisateur;
 		
+--	PROCEDURE ps_utilisateur_GET_utilisateur()
+	DROP PROCEDURE IF EXISTS ps_utilisateur_GET_utilisateur;
+	CREATE PROCEDURE ps_utilisateur_GET_utilisateur(
+		IN pseudoUtilisateur CHAR(30))
+		COMMENT 'Renvoie les informations d\'un utilisateur.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
+		SELECT ut_pseudo ut_mdp, ut_droit FROM utilisateur WHERE ut_pseudo = pseudoUtilisateur;
+		
+--	PROCEDURE ps_utilisateur_INSERT_utilisateur(pseudoUtilisateur, motDePassseUtilisateur, dateUtilisateur)
+	DROP PROCEDURE IF EXISTS ps_utilisateur_INSERT_utilisateur;
+	CREATE PROCEDURE `ps_utilisateur_INSERT_utilisateur`(
+		IN `pseudoUtilisateur` CHAR(30),
+		IN `motDePassseUtilisateur` CHAR(30),
+		IN `droitUtilisateur` INT)
+		COMMENT 'Insère un nouvel utilisateur dans la base si le pseudo fourni est disponible.'
+		NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
+		INSERT INTO utilisateur (ut_pseudo, ut_mdp, ut_droit)
+			VALUES(pseudoUtilisateur, motDePassseUtilisateur, droitUtilisateur);
+        
+--	PROCEDURE ps_utilisateur_DELETE_utilisateur(idUtilisateur)
+	DROP PROCEDURE IF EXISTS ps_utilisateur_DELETE_utilisateur;
+	CREATE PROCEDURE ps_utilisateur_DELETE_utilisateur(
+		IN idUtilisateur MEDIUMINT(30))
+		COMMENT 'Supprime un utilisateur de la base.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
+		DELETE FROM utilisateur WHERE ut_id = idUtilisateur;
+
+--	------------------------------- ----------- ------------------------------ --
+--									TABLE OBJET							       --
+--	------------------------------- ----------- ------------------------------ --
+
+--	PROCEDURE ps_objet_GET_objetListe()
+	DROP PROCEDURE IF EXISTS ps_objet_GET_objetListe;
+	CREATE PROCEDURE ps_objet_GET_objetListe()
+		COMMENT 'Renvoie la liste de tous les objets.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
+		SELECT obj_id, obj_libelle FROM objet;
+		
+--	PROCEDURE ps_objet_INSERT_objet(libelleObjet, descriptionObjet)
+	DROP PROCEDURE IF EXISTS ps_objet_INSERT_objet;
+	CREATE PROCEDURE ps_objet_INSERT_objet(
+		IN libelleObjet CHAR(30),
+		IN descriptionObjet VARCHAR(2000))
+		COMMENT 'Insère un nouvel objet.' NOT DETERMINISTIC MODIFIES SQL DATA SQL SECURITY DEFINER
+		INSERT INTO objet (obj_libelle, obj_description)
+			VALUES(libelleObjet, descriptionObjet);
+			
+--	------------------------------ ********** ------------------------------ --
+		
+--	PROCEDURE ps_utilisateur_connexion(pseudoUtilisateur, mdpUtilisateur)
+--	DROP PROCEDURE IF EXISTS ps_utilisateur_connexion;
+--	CREATE PROCEDURE ps_utilisateur_connexion(
+--		IN pseudoUtilisateur CHAR(30),
+--		IN mdpUtilisateur CHAR(30))
+--		COMMENT 'Insère un nouvel objet.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
+		--	VARIABLES
+--		DECLARE existenceUtilisateur INTEGER;
+--		SET existenceUtilisateur = 1;
+--		SELECT * FROM utilisateur;
+		-- SET existenceUtilisateur = SELECT COUNT(*) FROM utilisateur WHERE mdpUtilisateur = mdpUtilisateur;
+		-- BEGIN
+			-- IF (existenceUtilisateur > 0)
+				-- RETURN 1;
+			-- ELSE
+				-- RETURN 0;
+		-- END;
+	
 --	PROCEDURE ps_utilisateur_INSERT_utilisateur(pseudoUtilisateur, motDePassseUtilisateur, dateUtilisateur)
 --	DROP PROCEDURE IF EXISTS ps_utilisateur_INSERT_utilisateur;
 --	CREATE PROCEDURE `ps_utilisateur_INSERT_utilisateur`(
@@ -119,51 +191,3 @@
 --			END IF
 --			SET @retour = 1;
 --			SELECT @retour;
-        
-
-
-			
-			
---	PROCEDURE ps_utilisateur_DELETE_utilisateur(idUtilisateur)
-	DROP PROCEDURE IF EXISTS ps_utilisateur_DELETE_utilisateur;
-	CREATE PROCEDURE ps_utilisateur_DELETE_utilisateur(
-		IN idUtilisateur MEDIUMINT(30))
-		COMMENT 'Supprime un utilisateur de la base.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
-		DELETE FROM utilisateur WHERE ut_id = idUtilisateur;
-
---	PROCEDURE ps_objet_GET_objetListe()
-	DROP PROCEDURE IF EXISTS ps_objet_GET_objetListe;
-	CREATE PROCEDURE ps_objet_GET_objetListe()
-		COMMENT 'Renvoie la liste de tous les objets.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
-		SELECT obj_id, obj_libelle FROM objet;
-		
---	PROCEDURE ps_objet_INSERT_objet(libelleObjet, descriptionObjet)
-	DROP PROCEDURE IF EXISTS ps_objet_INSERT_objet;
-	CREATE PROCEDURE ps_objet_INSERT_objet(
-		IN libelleObjet CHAR(30),
-		IN descriptionObjet VARCHAR(2000))
-		COMMENT 'Insère un nouvel objet.' NOT DETERMINISTIC MODIFIES SQL DATA SQL SECURITY DEFINER
-		INSERT INTO objet (obj_libelle, obj_description)
-			VALUES(libelleObjet, descriptionObjet);
-		
---	PROCEDURE ps_utilisateur_connexion(pseudoUtilisateur, mdpUtilisateur)
---	DROP PROCEDURE IF EXISTS ps_utilisateur_connexion;
---	CREATE PROCEDURE ps_utilisateur_connexion(
---		IN pseudoUtilisateur CHAR(30),
---		IN mdpUtilisateur CHAR(30))
---		COMMENT 'Insère un nouvel objet.' NOT DETERMINISTIC NO SQL SQL SECURITY DEFINER
-		--	VARIABLES
---		DECLARE existenceUtilisateur INTEGER;
---		SET existenceUtilisateur = 1;
---		SELECT * FROM utilisateur;
-		-- SET existenceUtilisateur = SELECT COUNT(*) FROM utilisateur WHERE mdpUtilisateur = mdpUtilisateur;
-		-- BEGIN
-			-- IF (existenceUtilisateur > 0)
-				-- RETURN 1;
-			-- ELSE
-				-- RETURN 0;
-		-- END;
-	
-	
-	
-	--	Savoir déclarer des variables dans les procédures stockées MySQL;
