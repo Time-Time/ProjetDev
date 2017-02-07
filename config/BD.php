@@ -1,5 +1,7 @@
 <?php
-	function etablirConnexionBDD()
+	
+
+	function ConnexionBD()
 	{
 		try
 		{
@@ -11,5 +13,12 @@
 			die('Erreur : ' . $e->getMessage());
 		}
 		return $bdd;
+	}
+
+	function selectDisc($bdd) {
+
+		$req = $bdd->query('SELECT * FROM discipline');
+		$donnee = $req->fetch();
+		return $donnee;
 	}
 ?>

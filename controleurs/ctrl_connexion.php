@@ -1,11 +1,11 @@
 <?php
 	// Appel des fonctions propres à la base de données.
-	require_once("config/BD.php");
+	require_once("../config/BD.php");
 	function connecterUtilisateur()
 	{
 		if(isset($_POST["pseudo"]) && isset($_POST["password"]))
 		{		
-			$bdd = etablirConnexionBDD();
+			$bdd = connexionBD();
 			// On teste l'existence du pseudo dans la base de données.
 			$req = $bdd->query('SELECT * FROM utilisateur WHERE ut_pseudo="'.$_POST["pseudo"].'", "'.$_POST["password"].'";');
 			// On stocke le résultat de la requête dans un tableau.

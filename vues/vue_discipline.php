@@ -9,10 +9,10 @@
 				<h1 class="title">Bienvenue sur Notre site !</h1>
 			</div>
 		</div>
-		<div id="main" style="background-color: green">
+		<div id="main" <!-- style="background-color: green -->">
 
 			<?php 
-				$disciplines = selectDisc($bdd);
+				$disciplines = selectDisc(connexionBD());
 				/*var_dump($disciplines);
 				echo $disciplines[2];*/
 			?>
