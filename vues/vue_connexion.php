@@ -18,9 +18,14 @@
 					<div class="form-group">
 						<input class="form-control" type="password" name="password" id="user_password" placeholder="Mot de passe" required="required" autofocus="autofocus">
 					</div>
+<<<<<<< HEAD:vues/vue_connexion.php
 					<input class="btn btn_block" type="submit" name="commit" value="Connexion"><br/><br/>
 					<p style="text-align: center; color: white">ou</p><br>
 					<a style="text-align: center; margin-top: 0px;" href="vue_inscription.php" class="btn btn_block">Inscription</a>
+=======
+					<input class="btn btn-block" type="submit" name="commit" value="Connexion">
+					<?php  connecterUtilisateur(); ?>
+>>>>>>> 9f8b1cb9a5e894b9dd5cb3395be41b54309d95f5:vue_connexion.php
 				</form>
 			</div>
 		</div>
