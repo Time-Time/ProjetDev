@@ -1,3 +1,9 @@
+
+
+function deconnexion() {
+	alert('Vous êtes à présent déconnecté');
+}
+
 $(document).ready(function(){
     $('#btn_deco').click(function(){
     	$.ajax({

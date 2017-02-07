@@ -2,7 +2,7 @@
 	<body>
 		<?php
 			require_once("vue_topbar.php");
-			require_once("controleurs/ctrl_connexion.php")
+			require_once("../controleurs/ctrl_connexion.php")
 		?>
 		<div class="container title-container">
 			<div class="container">
@@ -18,7 +18,9 @@
 					<div class="form-group">
 						<input class="form-control" type="password" name="password" id="user_password" placeholder="Mot de passe" required="required" autofocus="autofocus">
 					</div>
-					<input class="btn btn-block" type="submit" name="commit" value="Connexion">
+					<input class="btn btn_block" type="submit" name="commit" value="Connexion"><br/><br/>
+					<p style="text-align: center; color: white">ou</p><br>
+					<a style="text-align: center; margin-top: 0px;" href="vue_inscription.php" class="btn btn_block">Inscription</a>
 				</form>
 			</div>
 		</div>

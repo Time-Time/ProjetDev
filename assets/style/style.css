@@ -19,6 +19,10 @@ a, article, body, footer, form, h1, h2, h3, header, html, nav, p, section, span,
     box-sizing: border-box;
 }
 
+li {
+	display: inline;
+}
+
 html {
 	height: 100%;
 	width: 100%;
@@ -79,6 +83,15 @@ body {
 
 .topbar-menu  {
 	float: left;
+	width: 500px;
+}
+
+.sous-menu {
+	display: none;
+}
+
+li:hover .sous-menu{
+	display: block;
 }
 
 .topbar-menu a {
@@ -115,8 +128,10 @@ body {
     border-radius: 3px; 
 }
 
-.btn-block {
-	width:100%;
+.btn_block {
+	width: 100%;
+	font-size: 14px;
+	cursor: pointer;
 }
 
 .formConnexion {
@@ -137,17 +152,33 @@ body {
 }
 
 .discipline-container {
+	display: flex;
+	position: relative;
 	width: 100%;
 	height: auto;
 	padding : 10px 10px;
 	margin: 0 20px 30px 0;
-	background-color: blue;
+	background-color: lightgrey;
 	border:solid;
+	border-radius: 25px;
+}
+
+.texte-disc {
+	margin : 10px 100px 10px 15px;
+}
+
+.titre-disc {
+	font-size: 25px;
+}
+
+.description-disc {
+
 }
 
 .img-discipline {
-	width: 40px;
-	height: 40px;
+	width: 250px;
+	height: 250px;
+	margin : 5px 10px 5px 0px;
 }
 
 .title-container {
@@ -166,6 +197,34 @@ body {
    /*min-width:80vw;*/
    /*min-height:800px;*/
    width:1000px;
+   height: 100%;
+}
+
+.container-circles {
+	display: flex;
+	align-items: center;
+    justify-content: center;
+    text-align: center;
+	padding: 20px;
+	margin-top: 50px;
+}
+
+.container-circles div {
+	vertical-align: middle;
+	margin: auto;
+}
+
+.container-circles p {
+	font-size: 30px;
+}
+
+.img-index {
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	margin:25px 50px 10px 50px;
 }
 
 .main-form {

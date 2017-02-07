@@ -8,7 +8,7 @@
 		</div>
 		<?php 
 			// On inclu le fichier qui fera les controles liés à l'inscriptions
-			require("controleurs/ctrl_inscription.php");
+			require("../controleurs/ctrl_inscription.php");
 
 		?>
 		<div id="main">
