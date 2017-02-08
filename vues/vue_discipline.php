@@ -1,6 +1,6 @@
 	<?php 
 		include("vue_head.php"); 
-		include("../config/BD.php");
+		include("../controleurs/ctrl_discipline.php");
 	?>
 	<body>
 		<?php include("vue_topbar.php"); ?>
@@ -10,13 +10,6 @@
 			</div>
 		</div>
 		<div id="main" <!-- style="background-color: green -->">
-
-			<?php 
-				$disciplines = selectDisc(connexionBD());
-				/*var_dump($disciplines);
-				echo $disciplines[2];*/
-			?>
-
 
 			<div class="discipline-container">
 				<div class= "texte-disc">

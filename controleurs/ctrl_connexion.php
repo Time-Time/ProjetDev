@@ -12,8 +12,8 @@
 
 			if($nombreLigne == 1)
 			{
+				session_start();
 				$_SESSION['pseudo'] = $_POST['pseudo'];
-				$user = $_POST['pseudo'];
 				// L'utilisateur est connu.
 				echo 'Utilisateur reconnu. Prêt à être connecté.';
 				header('Location: ../vues/index.php');
