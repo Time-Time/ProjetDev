@@ -1,20 +1,20 @@
 <div class="topbar">
 	<a class="topbar-logo"></a>
 	<nav class="topbar-menu">
-		<a href="index.php">Accueil</a>
-		<ul>
-			<li>
-				<a href="vue_discipline.php">Jonglage</a>
-				<ul class="sous-menu">
-					<li>test</li>
-					<li>test</li>
-					<li>test</li>
+		<ul></ul>
+		<li><a href="index.php">Accueil</a></li>
+		<ul class ="menu-accordeon">
+			<li><a href="vue_categorie.php">Jonglage</a>
+				<ul>
+					<li><a href="vue_discipline.php">Bolas</a></li>
+					<li><a href="vue_discipline.php">Contact</a></li>
+					<li><a href="vue_discipline.php">Poi</a></li>
 				</ul>
 			</li>
-			<li><a href="vue_discipline.php">FlipyFlux</a></li>
-			<li><a href="vue_discipline.php">FlowToys</a></li>
-			<li><a href="vue_contact.php">Contact</a></li>
 		</ul>
+			<a href="vue_discipline.php">FlipyFlux</a>
+			<li><a href="vue_discipline.php">FlowToys</a>
+			<li><a href="vue_contact.php">Contact</a></li>
 	</nav>
 	<!-- if $session is set alors on affiche le pseudo a la place -->
 	<div class="topbar-right">

@@ -2,7 +2,7 @@
 	<body>
 		<?php
 			require_once("vue_topbar.php");
-			
+			require_once("../controleurs/ctrl_connexion.php");
 		?>
 		<div class="container title-container">
 			<div class="container">
@@ -21,9 +21,8 @@
 					<input class="btn btn_block" type="submit" name="commit" value="Connexion"><br/><br/>
 					<p style="text-align: center; color: white">ou</p><br>
 					<a style="text-align: center; margin-top: 0px;" href="vue_inscription.php" class="btn btn_block">Inscription</a>
-					<?php require_once("../controleurs/ctrl_connexion.php")?>
 				</form>
 			</div>
 		</div>
 	</body>
-	<?php require_once("vue_footer.php"); ?>
+<?php require_once("vue_footer.php"); ?>

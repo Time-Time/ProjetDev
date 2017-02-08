@@ -73,7 +73,7 @@ body {
 	float: left;
 	display: block;
 	height: 66px;
-	width: 90px;
+	width: 66px;
 	padding-top: 18px;
 	margin-right: 15px;
 	background : url('../img/flux.jpg') no-repeat;
@@ -84,6 +84,26 @@ body {
 .topbar-menu  {
 	float: left;
 	width: 500px;
+}
+
+.menu-accordeon {
+	list-style: none;
+	text-align: center;
+}
+.menu-accordeon li a {
+   max-height:0;
+   display: block;
+   overflow: hidden;
+   transition: all .5s;
+   margin:0
+}
+
+.menu-accordeon li ul {
+	/*display: none;*/
+}
+
+.menu-accordeon a:hover li a {
+   max-height:15em;
 }
 
 .sous-menu {

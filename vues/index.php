@@ -12,7 +12,6 @@
 		<div id="main" style="width:1500px">
 
 			<div class="container-circles">
-
 				<div>
 					<p>Jonglage</p>
 					<img class="img-index" src="../assets/img/jonglage-index.jpg">
@@ -26,7 +25,6 @@
 					<img class="img-index" src="../assets/img/orbit-index.jpg">
 				</div>
 			</div>	
-
 		</div>
 	</body>
 	<?php require_once("vue_footer.php"); ?>
