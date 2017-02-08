@@ -86,37 +86,41 @@ body {
 	width: 500px;
 }
 
-.menu-accordeon {
-	list-style: none;
-	text-align: center;
-}
-.menu-accordeon li a {
-   max-height:0;
-   display: block;
-   overflow: hidden;
-   transition: all .5s;
-   margin:0
+li a, .dropbtn {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-.menu-accordeon li ul {
-	/*display: none;*/
+li.dropdown {
+    display: inline-block;
 }
 
-.menu-accordeon a:hover li a {
-   max-height:15em;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 120px;
 }
 
-.sous-menu {
-	display: none;
+.dropdown-content a {
+    padding: 12px 16px;
+    background-color: #404852;
+    text-decoration: none;
+    display: block;
+    text-align: left;
 }
 
-li:hover .sous-menu{
-	display: block;
+	
+.dropdown .dropdown-content {
+    transition: all .5s;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 .topbar-menu a {
-	display: block;
-    float: left;
     height: 66px;
     padding: 0 15px;
     line-height: 66px;
