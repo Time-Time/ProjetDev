@@ -19,7 +19,7 @@
 						<input class="form-control" type="password" name="password" id="user_password" placeholder="Mot de passe" required="required" autofocus="autofocus">
 					</div>
 					<input class="btn btn_block" type="submit" name="commit" value="Connexion"><br/><br/>
-					<p style="text-align: center; color: white">ou</p><br>
+					<p style="text-align: center; color: #78ab4e">ou</p><br>
 					<a style="text-align: center; margin-top: 0px;" href="vue_inscription.php" class="btn btn_block">Inscription</a>
 				</form>
 			</div>
