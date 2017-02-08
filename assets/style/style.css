@@ -273,6 +273,7 @@ li.dropdown {
 
 
 footer {
+	color: lightgrey;
 	position: absolute;
 	bottom: 0;
 	right: 0;
@@ -283,6 +284,6 @@ footer {
     padding-top: 15px;
     text-align: center;
     font-size: .9em;
-    background-color: #f9f9f9;
-    border-top: 3px solid #ececec;
+    background-color: #404852;
+    border-top: 3px solid #404852;
 }

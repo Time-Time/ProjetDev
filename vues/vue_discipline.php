@@ -18,6 +18,27 @@
 				</div>
 				<img class= "img-discipline" src="../assets/img/contactBall.jpg" width="200px" height="300px" />
 			</div>
+			<div class="discipline-container">
+				<div class= "texte-disc">
+					<div class= "titre-disc">FlipyFlux</div><br/>
+					<div class= "description-disc"><?php echo $disciplines[2] ?></div>
+				</div>
+				<img class= "img-discipline" src="../assets/img/contactBall.jpg" width="200px" height="300px" />
+			</div>
+			<div class="discipline-container">
+				<div class= "texte-disc">
+					<div class= "titre-disc">FlipyFlux</div><br/>
+					<div class= "description-disc"><?php echo $disciplines[2] ?></div>
+				</div>
+				<img class= "img-discipline" src="../assets/img/contactBall.jpg" width="200px" height="300px" />
+			</div>
+			<div class="discipline-container">
+				<div class= "texte-disc">
+					<div class= "titre-disc">FlipyFlux</div><br/>
+					<div class= "description-disc"><?php echo $disciplines[2] ?></div>
+				</div>
+				<img class= "img-discipline" src="../assets/img/contactBall.jpg" width="200px" height="300px" />
+			</div>
 
 				<!-- CONTENU DU SITE -->
 
