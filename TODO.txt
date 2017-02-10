@@ -1,0 +1,11 @@
+Tâches restantes :
+
+
+- Coder les fonctions pour récupérer / insérer des données dans la BD (inscription & connexion)
+- effectuer les controles (ctrl_connexion & ctrl_inscription) et coder les actions a effectuer en conséquence
+	- affichage AJAX des erreurs sur les pages connex et inscript
+
+
+- coder le carousel
+
+.... ACOMPLETER
