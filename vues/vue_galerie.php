@@ -3,8 +3,6 @@
 	<?php 
 		include('../controleurs/ctrl_galerie.php'); 
 	    include("vue_topbar.php"); 
-
-	    $url = $url_img[2];
 	 ?>
 	<div class="container title-container">
 		<div class="container">
@@ -14,15 +12,18 @@
 	<div id="main" style="width:1500px; text-align: center">
 
 		<div class="container-caroussel">
+		<img src="../assets/img/bolas.jpg" >
 			<?php 
-				echo '<img src="' . $url_img[2] . '">'
+			
+				//var_dump($url_img);
+				/*echo '<img src="' . $url_img[2] . '">'*/
 			?>
-			<div class="container-miniatures">
-				<img src="../assets/img/bolas.jpg" class="miniature">
-				<img src="../assets/img/bolas-fire.jpg" class="miniature">
-				<img src="../assets/img/orbit.jpg" class="miniature">
-				<img src="../assets/img/pandadub.jpg" class="miniature">
-
+			<div id="miniatures" class="container-miniatures">
+				<?php
+					foreach ($url_img as $value) {
+						echo '<img src="' . $value->img_url . '" class="miniature">';
+					};
+				?>
 			</div>
 		</div>	
 	</div>
