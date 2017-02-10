@@ -51,10 +51,10 @@ $(document).ready(function(){
 
 function verifConfirmationPassword()
 {
-	if(document.getElementById("password").value;  != document.getElementById("passwordConfirm").value; )
+	if($("#password").val())  == $("#passwordConfirm").val() && $("#password").val().length > 0 )
 	{
-		alert("Les deux mots de passes saisis ne sont pas identiques.");
-		document.getElementById("passwordConfirm").focus();
+		// Les deux mots de passes sont identiques
+		$("btn_inscription").val().enabled();
 		return false;
 	}
 	else

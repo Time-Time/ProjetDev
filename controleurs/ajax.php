@@ -22,9 +22,11 @@
     $username = "Sdz";
     $password = "salut";
 
+
+    /**************** */
     if( isset($_POST['user_username']) && isset($_POST['password']) ){
 
-        if($_POST['user_username'] == $username && $_POST['password'] == $password){ // Si les infos correspondent...
+        if($_POST['user_username'] == $username && $_POST['password'] == $password && $_POST['passwordConfirm'] == $password){
             session_start();
             $_SESSION['user'] = $username;
             echo "Hey ! Success";        
