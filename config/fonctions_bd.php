@@ -1,13 +1,26 @@
 <?php
 
-	function selectDisc($bdd)
+	/*********************************************************
+	********************** INSCRIPTION ***********************
+	**********************************************************/
+
+	function insertMembre($bdd, $pseudo, $password, $droit)
 	{
-		$req = $bdd->query('SELECT * FROM discipline');
-		$donnee = $req->fetch();
-		return $donnee;
+		// On teste l'existence du pseudo dans la base de données.
+		$req = $bdd->query('
+			INSERT INTO membre (mem_pseudo, mem_pwd, mem_admin)
+			VALUES(\''.$pseudo.'\', \''.$password.'\', \''.$droit.'\');
+			');
+		$req->closeCursor(); // Termine le traitement de la requête.
 	}
 
-	//
+
+
+
+	/*********************************************************
+	********************** CONNEXION *************************
+	**********************************************************/
+
 	function verifIdentifiantsExist($bdd, $pseudo, $password)
 	{
 		// On teste l'existence du pseudo et du mot de passe dans la base de données.
@@ -29,13 +42,38 @@
 		return $donnees;
 	}
 
-	function insertMembre($bdd, $pseudo, $password, $droit)
-	{
-		// On teste l'existence du pseudo dans la base de données.
-		$req = $bdd->query('
-			INSERT INTO membre (mem_pseudo, mem_pwd, mem_admin)
-			VALUES(\''.$pseudo.'\', \''.$password.'\', \''.$droit.'\');
-			');
-		$req->closeCursor(); // Termine le traitement de la requête.
+
+
+
+	/*********************************************************
+	********************** GALLERIE **************************
+	**********************************************************/
+
+	function selectAllImg($bdd) {
+		$req = $bdd->query('SELECT * FROM image');
+		$donnees = $req->fetch();
+		return $donnees;
 	}
+
+
+
+
+
+	/*********************************************************
+	********************** DISCIPLINE ************************
+	**********************************************************/
+
+	function selectDisc($bdd)
+	{
+		$req = $bdd->query('SELECT * FROM discipline');
+		$donnee = $req->fetch();
+		return $donnee;
+	}
+
+
+
+
+	/*********************************************************
+	********************** CATEGORIE *************************
+	**********************************************************/
 ?>
