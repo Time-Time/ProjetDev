@@ -19,7 +19,7 @@
 						<input class="form-control" type="password" name="password" id="password" placeholder="Mot de passe" required="required" autofocus="autofocus">
 					</div>
 					<div class="form-group">
-						<input class="form-control" type="password" name="confirm" id="password" placeholder="Confirmer mot de passe" required="required" autofocus="autofocus">
+						<input class="form-control" type="password" name="passwordConfirm" id="password" placeholder="Confirmer mot de passe" required="required" autofocus="autofocus">
 					</div>
 					<input id="btn_inscription" class="btn btn_block" type="submit" name="commit" value="s'inscrire">
 					</input>

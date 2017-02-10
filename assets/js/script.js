@@ -5,22 +5,22 @@ function deconnexion() {
 }
 
 $(document).ready(function(){
-    $('#btn_deco').click(function(){
-    	$.ajax({
-    		type: "POST",
-    		url:"./controleurs/ajax.php",
-    		data:{action:'deconnexion'},
-    		success: function(result) {
-    			console.log(result);
-    		},
-    		error: function(html) {
+	$('#btn_deco').click(function(){
+		$.ajax({
+			type: "POST",
+			url:"./controleurs/ajax.php",
+			data:{action:'deconnexion'},
+			success: function(result) {
+				console.log(result);
+			},
+			error: function(html) {
     			//alert('erreur');
     		}
     	});
-    });
+	});
 	/* ******************** FONCTION DE TEST ******************** */
-    $('#btn_inscription').click(function(){
-    });
+	$('#btn_inscription').click(function(){
+	});
 	/* ******************** Exemple AJAX OPEN CLASS ROOM ******************** */
     // $('#AAA').click(function(){
 		// //Permet d'instancier un objet de type XmlHttpRequest.
@@ -44,7 +44,21 @@ $(document).ready(function(){
 				
 			// }
 		// });
-		// alert('Appel javascript.');
-    // });
-	/* ********************  ******************** */
+// alert('Appel javascript.');
+// });
+/* ********************  ******************** */
 });
+
+function verifConfirmationPassword()
+{
+	if(document.getElementById("password").value;  != document.getElementById("passwordConfirm").value; )
+	{
+		alert("Les deux mots de passes saisis ne sont pas identiques.");
+		document.getElementById("passwordConfirm").focus();
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
