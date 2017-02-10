@@ -20,7 +20,7 @@
 			}
 			else
 			{
-				echo 'Utilisateur non reconnu. L\'identifiant ou le mot de pass n\'a pas été saisi correctement.';
+				echo 'Utilisateur non reconnu. L\'identifiant ou le mot de passe n\'a pas été saisi correctement.';
 			}
 			
 		}

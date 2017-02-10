@@ -11,7 +11,7 @@
 		svar_dump($donnees);
 	}
 	
-	if(isset($_POST["pseudo"]) && isset($_POST["password"]))
+	if(isset($_POST["pseudo"]) && isset($_POST["password"]) && isset($_POST["passwordConfirm"]))
 	{		
 		$donnees = verifPseudoExist($bdd, $_POST["pseudo"]);
 		// Relève le nombre d'occurrence du pseudo.
