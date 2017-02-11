@@ -4,6 +4,7 @@
 		include('../controleurs/ctrl_galerie.php'); 
 	    include("vue_topbar.php"); 
 	 ?>
+	<script type="text/javascript" src="../assets/js/galerie_carousel_ajax.js"></script>
 	<div class="container title-container">
 		<div class="container">
 			<h1 class="title">Galerie photo</h1>
@@ -12,18 +13,11 @@
 	<div id="main" style="width:1500px; text-align: center">
 
 		<div class="container-caroussel">
-		<img src="../assets/img/bolas.jpg" >
-			<?php 
-			
-				//var_dump($url_img);
-				/*echo '<img src="' . $url_img[2] . '">'*/
-			?>
+			<div id= "carousel">
+				<!-- Affichage de l'image courante -->
+			</div>
 			<div id="miniatures" class="container-miniatures">
-				<?php
-					foreach ($url_img as $value) {
-						echo '<img src="' . $value->img_url . '" class="miniature">';
-					};
-				?>
+				<!-- Affichage des miniatures en Ajax -->
 			</div>
 		</div>	
 	</div>

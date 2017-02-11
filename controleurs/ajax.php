@@ -3,14 +3,27 @@
     require('../config/connexion_bd.php');
 	// ******************************************************************************** 
 	
-    if ($_POST['action'] == 'deconnexion') {
+    if (isset($_POST['action']) && $_POST['action'] == 'deconnexion') {
         echo '{success : true}';
         deconnexion();
         header('Location : index.php');
     }
 
-    if ( isset($_POST['image=true']) {
-        $url_img = selectAllImg($bdd);
+    /* Provenance : galerie_carousel_ajax.php */
+    if ( isset($_POST['image']) && $_POST['image'] == "true") {
+        $url_img = selectAllImg($bdd); // Objet contenant toutes les images présenetes dans la BD
+        foreach ($url_img as $value) { 
+            // On retourne la valeur de l'url de chaque image sous forme de balise img
+            echo '<img src="' . $value->img_url . '" id="' . $value->img_desc . '" class="miniature" onclick=carousel(this.id) >';
+        };
+    }
+
+    if ( isset($_POST['img_id'])) {
+        $img_name = $_POST['img_id'];
+
+        $url_img = selectImgByName($bdd, $img_name); // Objet contenant toutes les images présenetes dans la BD
+            // On retourne la valeur de l'url de chaque image sous forme de balise img
+            echo '<img src="' . $url_img['img_url'] . '" class="image-carousel">';
     }
 
 
@@ -22,7 +35,7 @@
     }
 	// Inscription au site.
 	if( isset($_POST['user_username']) && isset($_POST['password']) ){
-		echo "'User : ' + $_POST['user_username'] + '\npassword : ' + _POST['password']";
+		echo "User : " . $_POST['user_username'] . ' password : ' . $_POST['password'];
 	}
 
     /**************** */
