@@ -21,7 +21,7 @@
 					<div class="form-group">
 						<input class="form-control" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer mot de passe" required="required" autofocus="autofocus">
 					</div>
-					<input id="btn_inscription" class="btn btn_block" type="button" name="commit" value="s'inscrire" onclick="javascript:verifIdentifiants()">
+					<input id="btn_inscription" class="btn btn_block" type="button" name="commit" value="s'inscrire" onclick="verifIdentifiants()">
 					</input>
 				<!--</form>-->
 			</div>
@@ -61,11 +61,11 @@
      						}
     					}
   					};
-  					xmlHTTP.open("POST", "../controleur/ctrl_inscription.php", true);
+  					xmlHTTP.open("POST", "../controleurs/ctrl_inscription.php", true);
   					xmlHTTP.send("pseudo=" + pseudo + "password=" + pwd1);
 				}else{
-					getElementByName('password').value = "";
-					getElementByName('passwordConfirm').value = "";
+					document.getElementsByName('password').value = "";
+					document.getElementsByName('passwordConfirm').value = "";
 					alert("Mots de passes différents");
 				}
 			}
