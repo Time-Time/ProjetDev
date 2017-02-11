@@ -49,11 +49,10 @@
 	********************** GALLERIE **************************
 	**********************************************************/
 
-	function selectUrlAllImg($bdd) {
-		$req = $bdd->query('SELECT img_url FROM image');
+	function selectAllImg($bdd) {
+		$req = $bdd->query('SELECT * FROM image');
 		$donnees = $req->fetchAll(PDO::FETCH_OBJ);
 		$req->closeCursor();
-
 		return $donnees;
 	}
 

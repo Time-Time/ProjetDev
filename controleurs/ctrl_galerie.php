@@ -4,6 +4,6 @@
 	require('../config/connexion_bd.php');
 	
 	
-	$url_img = selectUrlAllImg($bdd);
+	$url_img = selectAllImg($bdd);
 
 ?>
