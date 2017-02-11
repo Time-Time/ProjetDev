@@ -1,4 +1,6 @@
 <?php
+    include("../config/fonctions_bd.php");
+    require('../config/connexion_bd.php');
 	// ******************************************************************************** 
 	
     if ($_POST['action'] == 'deconnexion') {
@@ -6,6 +8,11 @@
         deconnexion();
         header('Location : index.php');
     }
+
+    if ( isset($_POST['image=true']) {
+        $url_img = selectAllImg($bdd);
+    }
+
 
     function deconnexion() {
         if (isset($_SESSION['pseudo'])) {
@@ -17,11 +24,6 @@
 	if( isset($_POST['user_username']) && isset($_POST['password']) ){
 		echo "'User : ' + $_POST['user_username'] + '\npassword : ' + _POST['password']";
 	}
-	
-	
-    $username = "Sdz";
-    $password = "salut";
-
 
     /**************** */
     if( isset($_POST['user_username']) && isset($_POST['password']) ){

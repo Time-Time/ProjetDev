@@ -21,7 +21,7 @@
 		{
 			// L'utilisateur n'existe pas encore => on le crée. On fixe le droit à 0, c'est-à-dire que l'utilisateur créé n'a aucun droit spécifique.
 			insertMembre($bdd, $_POST["pseudo"], $_POST["password"], 0);
-			return "ok".
+			return "ok";
 		}
 		else
 		{

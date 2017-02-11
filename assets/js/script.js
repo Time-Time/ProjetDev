@@ -51,7 +51,7 @@ $(document).ready(function(){
 
 function verifConfirmationPassword()
 {
-	if($("#password").val())  == $("#passwordConfirm").val() && $("#password").val().length > 0 )
+	if($("#password").val()  == $("#passwordConfirm").val() && $("#password").val().length > 0 )
 	{
 		// Les deux mots de passes sont identiques
 		$("btn_inscription").val().enabled();
