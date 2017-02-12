@@ -1,3 +1,8 @@
+
+/* ************************************************************************************ */
+/*										vue_topbar.php									*/
+/* ************************************************************************************ */
+
 function deconnexion() {
 	alert('Vous êtes à présent déconnecté');
 }
@@ -16,37 +21,7 @@ $(document).ready(function(){
     		}
     	});
 	});
-	/* ******************** FONCTION DE TEST ******************** */
-	$('#btn_inscription').click(function(){
-	});
-	/* ******************** Exemple AJAX OPEN CLASS ROOM ******************** */
-    // $('#AAA').click(function(){
-		// //Permet d'instancier un objet de type XmlHttpRequest.
-		// $.ajax({
-			// //Ressource ciblée
-			// url : './ajax.php',
-			// type : 'POST',
-			// data : 	'ut_pseudo=' + $('#user_username').val()
-				// + 'ut_mdp=' + $('password').val(),
-			// datatType : 'html',
-			// success : function(code_html, statut){
-			// //		Le paramètre code_html contient le code html renvoyé par la requête.
-			// },
-			// //Permet de traiter une éventuelle erreur lors de l'exécution de la requête AJAX.
-			// error : function(resultat, statut, erreur){
-				// alert('Erreur lors du traitement de la requête d\'inscription.\n\n'
-				// + erreur);
-			// },
-			// //Permet de traiter la suite des événements une fois que la requête AJAX ait été exécutée.
-			// complete : function(resultat, statut){
-				
-			// }
-		// });
-// alert('Appel javascript.');
-// });
-/* ********************  ******************** */
 });
-
 
 /* ************************************************************************************ */
 /*									vue_inscription.php									*/
@@ -59,29 +34,33 @@ function clearTextBox(){
 	document.getElementById("passwordConfirm").value = "";
 }
 
-function verifIdentifiants(){
+function inscriptionVerifIdentifiants(){
 	var pseudo = document.getElementById("user_username").value;
 	var pwd1 = document.getElementById("password").value;
 	var pwd2 = document.getElementById("passwordConfirm").value;
-	var xmlHTTP;
+	var xhr = null;
 
 	// test mdp identiques
 	if(pwd1 == pwd2){
-		xmlHTTP = new XMLHttpRequest();
-		xmlHTTP.onreadystatechange = function() {
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				if(xmlHTTP.responseText == "OK") {
-						// TODO redirection vers la page d'accueil.
-						header('Location: ../vues/index.php');
+				if(xhr.responseText == "OK") {
+						/*alert("Utilisateur créé !");*/
+						// Redirection vers la page d'accueil.
+						document.location.href="../vues/index.php";
+
 				}else{
 						alert("Ce pseudo existe déjà.");
 						document.getElementById("user_username").focus();
 				}
 			}
 		};
-		xmlHTTP.open("POST", "../controleurs/ctrl_inscription.php", true);
-		xmlHTTP.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		xmlHTTP.send("pseudo=" + pseudo + "password=" + pwd1);
+		xhr.open("POST", "../controleurs/ctrl_inscription.php", true);
+		// A placer aprèsa méthode open si on utilise la méthode POST.
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
+		xhr.send("pseudo=" + pseudo + "&" + "password=" + pwd1);
 	}else{
 		alert("Mots de passes différents");
 		document.getElementById('password').value = "";
@@ -89,3 +68,7 @@ function verifIdentifiants(){
 		document.getElementById('password').focus();
 	}
 }
+
+/* ************************************************************************************ */
+/*																						*/
+/* ************************************************************************************ */

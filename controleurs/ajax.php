@@ -36,7 +36,5 @@
         else{ // Sinon
             echo "Hoy ! Failed";
         }
-
     }
-	
 ?>

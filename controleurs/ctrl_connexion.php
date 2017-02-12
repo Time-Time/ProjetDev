@@ -8,7 +8,6 @@
 			$donnees = verifIdentifiantsExist($bdd, $_POST["pseudo"], $_POST["password"]);
 			// Relève le nombre d'occurrence du pseudo.
 			$nombreLigne = $donnees['nbUser'];
-
 			if($nombreLigne == 1)
 			{
 				session_start();
