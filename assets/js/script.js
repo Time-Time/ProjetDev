@@ -1,5 +1,3 @@
-
-
 function deconnexion() {
 	alert('Vous êtes à présent déconnecté');
 }
@@ -49,16 +47,45 @@ $(document).ready(function(){
 /* ********************  ******************** */
 });
 
-function verifConfirmationPassword()
-{
-	if($("#password").val()  == $("#passwordConfirm").val() && $("#password").val().length > 0 )
-	{
-		// Les deux mots de passes sont identiques
-		$("btn_inscription").val().enabled();
-		return false;
-	}
-	else
-	{
-		return true;
+
+/* ************************************************************************************ */
+/*									vue_inscription.php									*/
+/* ************************************************************************************ */
+
+// Efface les champs de saisie des mots de passes s'ils ne sont pas identiques.
+function clearTextBox(){
+	document.getElementById("user_username").value = "";
+	document.getElementById("password").value = "";
+	document.getElementById("passwordConfirm").value = "";
+}
+
+function verifIdentifiants(){
+	var pseudo = document.getElementById("user_username").value;
+	var pwd1 = document.getElementById("password").value;
+	var pwd2 = document.getElementById("passwordConfirm").value;
+	var xmlHTTP;
+
+	// test mdp identiques
+	if(pwd1 == pwd2){
+		xmlHTTP = new XMLHttpRequest();
+		xmlHTTP.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if(xmlHTTP.responseText == "OK") {
+						// TODO redirection vers la page d'accueil.
+						header('Location: ../vues/index.php');
+				}else{
+						alert("Ce pseudo existe déjà.");
+						document.getElementById("user_username").focus();
+				}
+			}
+		};
+		xmlHTTP.open("POST", "../controleurs/ctrl_inscription.php", true);
+		xmlHTTP.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		xmlHTTP.send("pseudo=" + pseudo + "password=" + pwd1);
+	}else{
+		alert("Mots de passes différents");
+		document.getElementById('password').value = "";
+		document.getElementById('passwordConfirm').value = "";
+		document.getElementById('password').focus();
 	}
 }

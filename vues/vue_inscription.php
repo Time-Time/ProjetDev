@@ -26,49 +26,5 @@
 				<!--</form>-->
 			</div>
 		</div>
-
-		<script>
-			function clearTextBox(){
-				document.getElementById("user_username").value = "";
-				document.getElementById("password").value = "";
-				document.getElementById("passwordConfirm").value = "";
-			}
-
-			function verifIdentifiants(){
-				var pseudo;
-				var pwd1;
-				var pwd2;
-				var xmlHTTP;
-
-				pseudo = document.getElementById("user_username").value;
-				pwd1 = document.getElementById("password").value;
-				pwd2 = document.getElementById("passwordConfirm").value;
-
-				// test mdp identiques
-				if(pwd1 == pwd2){
-					xmlHTTP = new XMLHttpRequest();
-					// On scrute le retour de la requête HttpRequest.
-  					xmlHTTP.onreadystatechange = function() {
-    					if (this.readyState == 4 && this.status == 200) {
-     						if(xmlHTTP.responseText == "ok")
-     						{
-     							// TODO redirection vers la page d'accueil.
-     							alert("Identification OK");
-     							clearTextBox();
-     						}else{
-     							alert("Ce pseudo existe déjà.");
-     							$("#btn_inscription").focus();
-     						}
-    					}
-  					};
-  					xmlHTTP.open("POST", "../controleurs/ctrl_inscription.php", true);
-  					xmlHTTP.send("pseudo=" + pseudo + "password=" + pwd1);
-				}else{
-					document.getElementsByName('password').value = "";
-					document.getElementsByName('passwordConfirm').value = "";
-					alert("Mots de passes différents");
-				}
-			}
-		</script>
 	</body>
 	<?php require_once("vue_footer.php"); ?>
