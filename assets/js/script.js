@@ -11,7 +11,7 @@ $(document).ready(function(){
 	$('#btn_deco').click(function(){
 		$.ajax({
 			type: "POST",
-			url:"./controleurs/ajax.php",
+			url:"../controleurs/ajax.php",
 			data:{action:'deconnexion'},
 			success: function(result) {
 				console.log(result);
@@ -22,9 +22,6 @@ $(document).ready(function(){
     	});
 	});
 });
-
-<<<<<<< HEAD
-=======
 
 function verifConfirmationPassword()
 {
@@ -40,8 +37,6 @@ function verifConfirmationPassword()
 
 	}
 }
-
->>>>>>> 94fffef97995d6c246c80274c78d4879703d4b93
 /* ************************************************************************************ */
 /*									vue_inscription.php									*/
 /* ************************************************************************************ */
