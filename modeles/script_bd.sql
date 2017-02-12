@@ -3,19 +3,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema bf_bdd
+-- Schema bf_web
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema bf_bdd
+-- Schema bf_web
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `bf_bdd` DEFAULT CHARACTER SET utf8 ;
-USE `bf_bdd` ;
+CREATE SCHEMA IF NOT EXISTS `bf_web` DEFAULT CHARACTER SET utf8 ;
+USE `bf_web` ;
 
 -- -----------------------------------------------------
--- Table `bf_bdd`.`membre`
+-- Table `bf_web`.`membre`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bf_bdd`.`membre` (
+CREATE TABLE IF NOT EXISTS `bf_web`.`membre` (
   `mem_id` INT NOT NULL AUTO_INCREMENT,
   `mem_pseudo` VARCHAR(45) NOT NULL,
   `mem_pwd` VARCHAR(45) NOT NULL,
@@ -27,9 +27,9 @@ INSERT INTO membre (mem_admin, mem_pseudo, mem_pwd) VALUES (0, 'aze', 'a');
 
 
 -- -----------------------------------------------------
--- Table `bf_bdd`.`image`
+-- Table `bf_web`.`image`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bf_bdd`.`image` (
+CREATE TABLE IF NOT EXISTS `bf_web`.`image` (
   `img_id` INT NOT NULL AUTO_INCREMENT,
   `img_desc` VARCHAR(45) NOT NULL,
   `img_url` VARCHAR(45) NOT NULL,
@@ -40,9 +40,9 @@ ENGINE = MyISAM;
 
 
 -- -----------------------------------------------------
--- Table `bf_bdd`.`categorie`
+-- Table `bf_web`.`categorie`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bf_bdd`.`categorie` (
+CREATE TABLE IF NOT EXISTS `bf_web`.`categorie` (
   `cat_id` INT NOT NULL AUTO_INCREMENT,
   `cat_nom` VARCHAR(45) NULL,
   `cat_img_id` INT NULL,
@@ -52,9 +52,9 @@ ENGINE = MyISAM;
 
 
 -- -----------------------------------------------------
--- Table `bf_bdd`.`discipline`
+-- Table `bf_web`.`discipline`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bf_bdd`.`discipline` (
+CREATE TABLE IF NOT EXISTS `bf_web`.`discipline` (
   `disc_id` INT NOT NULL AUTO_INCREMENT,
   `disc_nom` VARCHAR(45) NULL,
   `disc_desc` LONGTEXT NULL,
@@ -65,9 +65,9 @@ ENGINE = MyISAM;
 
 
 -- -----------------------------------------------------
--- Table `bf_bdd`.`commentaire`
+-- Table `bf_web`.`commentaire`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `bf_bdd`.`commentaire` (
+CREATE TABLE IF NOT EXISTS `bf_web`.`commentaire` (
   `com_id` INT NOT NULL AUTO_INCREMENT,
   `com_mem_id` INT NOT NULL,
   `com_contenu` LONGTEXT NULL,
@@ -83,10 +83,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 -- -----------------------------------------------------
--- Table `bf_bdd`.`image`
+-- Table `bf_web`.`image`
 -- -----------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS `bf_bdd`.`image` (
+CREATE TABLE IF NOT EXISTS `bf_web`.`image` (
   `img_id` int(11) NOT NULL,
   `img_desc` varchar(45) NOT NULL,
   `img_url` varchar(45) NOT NULL,
