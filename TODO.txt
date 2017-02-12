@@ -9,3 +9,7 @@ Tâches restantes :
 - coder le carousel
 
 .... ACOMPLETER
+
+-	Créer une page d'administration comportant :
+
+	Formulaire pour saisir une discipline + contrôles de saisie.

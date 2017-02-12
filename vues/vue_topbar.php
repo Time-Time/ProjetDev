@@ -21,6 +21,7 @@
 			</li>
 			<li><a href="vue_galerie.php">Gallerie</a></li>
 			<li><a href="vue_contact.php">Contact</a></li>
+			<li><a href="vue_admin.php">Admin</a></li>
 		</ul>
 	</nav>
 	<!-- si $session is set alors on affiche le pseudo suivi du btn déconnexion

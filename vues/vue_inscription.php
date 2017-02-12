@@ -6,17 +6,14 @@
 				<h1 class="title">Inscription</h1>
 			</div>
 		</div>
-		<?php 
-
-		?>
 		<div id="main">
 			<div class="container container-form">
 				<!--<form id="signin" class="form-signin" action="../controleurs/ctrl_inscription.php" charset="UTF-8" method="POST">-->
 				<div class="form-group">
-					<input class="form-control" type="text" name="pseudo" id="user_username" placeholder="Nom d'utilisateur" required="required" autofocus="autofocus">
+					<input class="form-control" type="text" name="pseudo" id="user_username" placeholder="Nom d'utilisateur" required="required" autofocus="autofocus" maxlength="45">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="password" name="password" id="password" placeholder="Mot de passe" required="required" autofocus="autofocus">
+					<input class="form-control" type="password" name="password" id="password" placeholder="Mot de passe" required="required" autofocus="autofocus" maxlength="45">
 				</div>
 				<div class="form-group">
 					<input class="form-control" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer mot de passe" required="required" autofocus="autofocus">

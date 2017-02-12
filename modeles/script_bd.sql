@@ -62,6 +62,8 @@ CREATE TABLE IF NOT EXISTS `bf_web`.`discipline` (
   PRIMARY KEY (`disc_id`),
   INDEX `fk_discipline_categorie1_idx` (`disc_cat_id` ASC))
 ENGINE = MyISAM;
+-- Création d'une discipline.
+INSERT INTO discipline (disc_nom, disc_desc, disc_cat_id) VALUES ('disc_test', 'description...', '0');
 
 
 -- -----------------------------------------------------

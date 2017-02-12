@@ -64,7 +64,7 @@ function inscriptionVerifIdentifiants(){
 			}
 		};
 		xhr.open("POST", "../controleurs/ctrl_inscription.php", true);
-		// A placer aprèsa méthode open si on utilise la méthode POST.
+		// A placer après la méthode open si on utilise la méthode POST.
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
 		xhr.send("pseudo=" + pseudo + "&" + "password=" + pwd1);
@@ -105,12 +105,41 @@ function connexionVerifIdentifiants(){
 		}
 	};
 	xhr.open("POST", "../controleurs/ctrl_connexion.php", true);
-	// A placer aprèsa méthode open si on utilise la méthode POST.
+	// A placer après la méthode open si on utilise la méthode POST.
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
 	xhr.send("pseudo=" + pseudo + "&" + "password=" + password);
 }
 
+/* ************************************************************************************ */
+/*									vue_admin.php									*/
+/* ************************************************************************************ */
+
+function adminVerifDisciplineNom(){
+	var disNom = document.getElementById("disc_nom").value;
+	var xhr = null;
+
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			if(xhr.responseText == "OK - Discipline disponible.") {
+				/*alert("Discipline disponible.");*/
+			}
+			else{
+				alert("Cette discipline existe déjà.");
+				document.getElementById("disc_nom").focus();
+			}
+		}
+	};
+	xhr.open("POST", "../controleurs/ctrl_admin.php", true);
+	// A placer après la méthode open si on utilise la méthode POST.
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
+	xhr.send("disciplineNom=" + disNom);
+}
+
+function adminVerifSaisie(){
+}
 /* ************************************************************************************ */
 /*																						*/
 /* ************************************************************************************ */
