@@ -4,19 +4,19 @@
 		<ul>
 			<li><a href="index.php">Accueil</a></li>
 			<li class ="dropdown">
-				<a class="dropbtn" href="vue_categorie.php">Jonglage</a>
+				<a class="dropbtn" href="vue_discipline.php?cat=jonglage">Jonglage</a>
 				<div class= "dropdown-content">
-					<a href="vue_discipline.php">Bolas</a>
-					<a href="vue_discipline.php">Contact</a>
-					<a href="vue_discipline.php">Poi</a>
+					<a href="vue_discipline.php?cat=jonglage&disc=bolas">Bolas</a>
+					<a href="vue_discipline.php?cat=jonglage&disc=contact">Contact</a>
+					<a href="vue_discipline.php?cat=jonglage&disc=staff">Staff</a>
 				</div>
 			</li>
-			<li><a href="vue_discipline.php">FlipyFlux</a></li>
+			<li><a href="vue_discipline.php?cat=flux&disc=flipyflux">FlipyFlux</a></li>
 			<li class ="dropdown">
-				<a class="dropbtn" href="vue_categorie.php">Light Toys</a>
+				<a class="dropbtn" href="vue_discipline.php?cat=light">Light Toys</a>
 				<div class= "dropdown-content">
-					<a href="vue_discipline.php">Orbit</a>
-					<a href="vue_discipline.php">Gloves</a>
+					<a href="vue_discipline.php?cat=light&disc=orbit">Orbit</a>
+					<a href="vue_discipline.php?cat=light&disc=gloves">Gloves</a>
 				</div>
 			</li>
 			<li><a href="vue_galerie.php">Gallerie</a></li>

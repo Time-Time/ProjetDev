@@ -12,15 +12,15 @@
 	<div id="main" style="width:1500px">
 
 		<div class="container-circles">
-			<a href="vue_categorie.php" class="lien-categorie">
+			<a href="vue_discipline.php?cat=jonglage" class="lien-categorie">
 				<p>Jonglage</p>
 				<img class="img-index" src="../assets/img/jonglage-index.jpg">
 			</a>
-			<a href="vue_categorie.php" class="lien-categorie">
+			<a href="vue_discipline.php?cat=flux&disc=flipyflux" class="lien-categorie">
 				<p>Flux</p>
 				<img class="img-index" src="../assets/img/flipyflux-index.jpg">
 			</a>
-			<a href="vue_categorie.php" class="lien-categorie">
+			<a href="vue_discipline.php?cat=light" class="lien-categorie">
 				<p>Light-Toys</p>
 				<img class="img-index" src="../assets/img/orbit-index.jpg">
 			</a>
