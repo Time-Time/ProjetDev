@@ -15,6 +15,7 @@ var xmlHTTP = getXmlHttpRequestObject();
 
 //On initialise notre requête
 function getMiniatures() { 
+
 	var url = "../controleurs/ajax.php";
 	var params = "image=true";
 	xmlHTTP.open("POST", url, true);

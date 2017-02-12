@@ -14,9 +14,6 @@
 		$req->closeCursor(); // Termine le traitement de la requête.
 	}
 
-
-
-
 	/*********************************************************
 	********************** CONNEXION *************************
 	**********************************************************/
@@ -31,7 +28,6 @@
 		return $donnees;
 	}
 
-
 	function verifPseudoExist($bdd, $pseudo)
 	{
 		// On teste l'existence du pseudo dans la base de données.
@@ -42,12 +38,10 @@
 		return $donnees;
 	}
 
-
-
-
 	/*********************************************************
 	********************** GALLERIE **************************
 	**********************************************************/
+
 
 	// Retourne un objet contenant toutes les images présentes dans la BD
 	function selectAllImg($bdd) {
@@ -57,6 +51,7 @@
 		return $donnees;
 	}
 
+
 	// Retourne l'url du nom de l'image donné en paramètre
 	function selectImgByName($bdd, $name) {
 		$req = $bdd->query('SELECT * FROM image WHERE img_desc =\''.$name.'\'');
@@ -64,7 +59,6 @@
 		$req->closeCursor();
 		return $donnee;
 	}
-
 
 	/*********************************************************
 	********************** DISCIPLINE ************************
@@ -76,9 +70,6 @@
 		$donnee = $req->fetch();
 		return $donnee;
 	}
-
-
-
 
 	/*********************************************************
 	********************** CATEGORIE *************************

@@ -22,8 +22,8 @@
         $img_name = $_POST['img_id'];
 
         $url_img = selectImgByName($bdd, $img_name); // Objet contenant toutes les images présenetes dans la BD
-            // On retourne la valeur de l'url de chaque image sous forme de balise img
-            echo '<img src="' . $url_img['img_url'] . '" class="image-carousel">';
+        // On retourne la valeur de l'url de chaque image sous forme de balise img
+        echo '<img src="' . $url_img['img_url'] . '" class="image-carousel">';
     }
 
 
