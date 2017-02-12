@@ -21,7 +21,7 @@
 				<div class="form-group">
 					<input class="form-control" type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer mot de passe" required="required" autofocus="autofocus">
 				</div>
-				<input id="btn_inscription" class="btn btn_block" type="submit" name="commit" value="s'inscrire" onclick="inscriptionVerifIdentifiants()">
+				<input id="btn_inscription" class="btn btn_block" type="button" name="commit" value="s'inscrire" onclick="inscriptionVerifIdentifiants()">
 				</input>
 				<!--</form>-->
 			</div>

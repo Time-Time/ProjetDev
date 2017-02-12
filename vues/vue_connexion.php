@@ -18,7 +18,7 @@
 				<div class="form-group">
 					<input class="form-control" type="password" name="password" id="user_password" placeholder="Mot de passe" required="required" autofocus="autofocus">
 				</div>
-				<input id="btn_connexion" class="btn btn_block" type="submit" name="commit" value="Connexion" onclick="connexionVerifIdentifiants()"><br/><br/>
+				<input id="btn_connexion" class="btn btn_block" type="button" name="commit" value="Connexion" onclick="connexionVerifIdentifiants()"><br/><br/>
 				<p style="text-align: center; color: #78ab4e">ou</p><br>
 				<a style="text-align: center; margin-top: 0px;" href="vue_inscription.php" class="btn btn_block">Inscription</a>
 				<!-- </form> -->
