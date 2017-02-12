@@ -23,6 +23,25 @@ $(document).ready(function(){
 	});
 });
 
+<<<<<<< HEAD
+=======
+
+function verifConfirmationPassword()
+{
+	if($("#password").val()  == $("#passwordConfirm").val() && $("#password").val().length > 0 )
+	{
+		// Les deux mots de passes sont identiques
+		$("btn_inscription").val().enabled();
+		return false;
+	}
+	else
+	{
+		return true;
+
+	}
+}
+
+>>>>>>> 94fffef97995d6c246c80274c78d4879703d4b93
 /* ************************************************************************************ */
 /*									vue_inscription.php									*/
 /* ************************************************************************************ */

@@ -211,6 +211,7 @@ li.dropdown {
 
 .title-container {
 	position: relative;
+	width: 100%;
     padding: 25px 0;
     border-bottom: 1px solid #e5e5e5;
     background-color: #f9f9f9;
@@ -270,6 +271,12 @@ li.dropdown {
 	vertical-align: bottom;*/
 	background-color: white;
 	margin-bottom: 50px;
+}
+
+.image-carousel {
+	width: 400px;
+	height: 400px;
+	margin: 10px 0 10px 0;
 }
 
 .container-miniatures {

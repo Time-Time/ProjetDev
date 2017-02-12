@@ -15,16 +15,22 @@ var xmlHTTP = getXmlHttpRequestObject();
 
 //On initialise notre requête
 function getMiniatures() { 
-	var url = "../../controleurs/ajax.php";
+
+	var url = "../controleurs/ajax.php";
 	var params = "image=true";
 	xmlHTTP.open("POST", url, true);
 
 	xmlHTTP.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
 	xmlHTTP.onreadystatechange = function() {
+
 		if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200) {
+
+			/* Insertion des images dans l'emplacement de stockage des miniatures */
 			document.getElementById("miniatures").innerHTML = xmlHTTP.responseText;
-			//carousel();
+			
+			//init de l'image courante du carousel
+			carousel('buugeng');
 		}
 	}
 	xmlHTTP.send(params);
@@ -32,6 +38,31 @@ function getMiniatures() {
 
 // On attend que le DOM soit bien chargé
 $(document).ready(function(){
+
 	// on fait notre appel ajax
 	getMiniatures();
 });
+
+
+
+
+function carousel(img_id) {
+
+	// miniature cliquée
+	var aAfficher = document.getElementById(img_id);
+
+	var url = "../controleurs/ajax.php";
+	var params = "img_id="+img_id;
+	xmlHTTP.open("POST", url, true);
+	xmlHTTP.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+	xmlHTTP.onreadystatechange = function() {
+
+		if(xmlHTTP.readyState == 4 && xmlHTTP.status == 200) {
+
+			/* Insertion des images dans l'emplacement de stockage des miniatures */
+			document.getElementById("carousel").innerHTML = xmlHTTP.responseText;
+		}
+	}
+	xmlHTTP.send(params);
+};

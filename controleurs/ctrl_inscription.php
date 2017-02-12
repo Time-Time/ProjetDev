@@ -13,10 +13,14 @@
 		{
 			// L'utilisateur n'existe pas encore => on le crée. On fixe le droit à 0, c'est-à-dire que l'utilisateur créé n'a aucun droit spécifique.
 			insertMembre($bdd, $_POST["pseudo"], $_POST["password"], 0);
+<<<<<<< HEAD
 			// On connecte l'utilisateur
 			session_start();
 			$_SESSION['pseudo'] = $_POST['pseudo'];
 			// Valeur que va prendre l'objet xhr.responseText de la fonction AJAX.
+=======
+
+>>>>>>> 94fffef97995d6c246c80274c78d4879703d4b93
 			echo 'OK';
 		}
 		else

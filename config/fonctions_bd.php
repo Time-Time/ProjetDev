@@ -42,11 +42,22 @@
 	********************** GALLERIE **************************
 	**********************************************************/
 
+
+	// Retourne un objet contenant toutes les images présentes dans la BD
 	function selectAllImg($bdd) {
 		$req = $bdd->query('SELECT * FROM image');
 		$donnees = $req->fetchAll(PDO::FETCH_OBJ);
 		$req->closeCursor();
 		return $donnees;
+	}
+
+
+	// Retourne l'url du nom de l'image donné en paramètre
+	function selectImgByName($bdd, $name) {
+		$req = $bdd->query('SELECT * FROM image WHERE img_desc =\''.$name.'\'');
+		$donnee = $req->fetch();
+		$req->closeCursor();
+		return $donnee;
 	}
 
 	/*********************************************************
