@@ -17,10 +17,12 @@
 				<div class= "dropdown-content">
 					<a href="vue_discipline.php">Orbit</a>
 					<a href="vue_discipline.php">Gloves</a>
+					<a href="vue_discipline.php">Gloves</a>
 				</div>
 			</li>
 			<li><a href="vue_galerie.php">Gallerie</a></li>
 			<li><a href="vue_contact.php">Contact</a></li>
+			<li><a href="vue_admin.php">Administrer</a></li>
 		</ul>
 	</nav>
 	<!-- si $session is set alors on affiche le pseudo suivi du btn déconnexion

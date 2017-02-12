@@ -74,4 +74,19 @@
 	/*********************************************************
 	********************** CATEGORIE *************************
 	**********************************************************/
+
+
+	/*********************************************************
+	************************ ADMIN ***************************
+	**********************************************************/
+
+	function verifDisciplineExist($bdd, $disciplineNom)
+	{
+		// On teste l'existence du pseudo et du mot de passe dans la base de données.
+		$req = $bdd->query('SELECT COUNT(*) AS nbDiscipline FROM discipline WHERE disc_nom = \''.$disciplineNom.'\'');
+		// On stocke le résultat de la requête dans un tableau.
+		$donnees = $req->fetch();
+		$req->closeCursor(); // Termine le traitement de la requête
+		return $donnees;
+	}
 ?>
