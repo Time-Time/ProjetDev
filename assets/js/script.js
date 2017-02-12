@@ -27,13 +27,6 @@ $(document).ready(function(){
 /*									vue_inscription.php									*/
 /* ************************************************************************************ */
 
-// Efface les champs de saisie des mots de passes s'ils ne sont pas identiques.
-function clearTextBox(){
-	document.getElementById("user_username").value = "";
-	document.getElementById("password").value = "";
-	document.getElementById("passwordConfirm").value = "";
-}
-
 function inscriptionVerifIdentifiants(){
 	var pseudo = document.getElementById("user_username").value;
 	var pwd1 = document.getElementById("password").value;
@@ -67,6 +60,41 @@ function inscriptionVerifIdentifiants(){
 		document.getElementById('passwordConfirm').value = "";
 		document.getElementById('password').focus();
 	}
+}
+
+/* ************************************************************************************ */
+/*									vue_connexion.php									*/
+/* ************************************************************************************ */
+
+function connexionVerifIdentifiants(){
+	var pseudo = document.getElementById("user_username").value;
+	var password = document.getElementById("user_password").value;
+	var xhr = null;
+
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			if(xhr.responseText == "OK - identifiants corrects.") {
+					/*alert("Utilisateur reconnu !");*/
+					document.location.href="../vues/index.php";
+			}else if(xhr.responseText == "KO - Mot de passe errone."){
+					alert("Mot de passe errone.");
+					document.getElementById("user_password").value = "";
+					document.getElementById("user_password").focus();
+			}
+			else{
+					alert("Ce nom d'utilisateur n'existe pas.");
+					document.getElementById("user_username").value = "";
+					document.getElementById("user_password").value = "";
+					document.getElementById("user_username").focus();
+			}
+		}
+	};
+	xhr.open("POST", "../controleurs/ctrl_connexion.php", true);
+	// A placer aprèsa méthode open si on utilise la méthode POST.
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
+	xhr.send("pseudo=" + pseudo + "&" + "password=" + password);
 }
 
 /* ************************************************************************************ */
