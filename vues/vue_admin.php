@@ -16,12 +16,15 @@
 					<input class="form-control" type="text" name="disc_nom" id="disc_nom" placeholder="Nom de la discipline" required="required" autofocus="autofocus" maxlength="45" onblur="adminVerifDisciplineNom()">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="password" name="disc_description" id="disc_description" placeholder="Description de la discipline" required="required" autofocus="autofocus" maxlength="4294967296">
+					<input class="form-control" type="text" name="disc_description" id="disc_description" placeholder="Description de la discipline" required="required" autofocus="autofocus" maxlength="4294967296">
 				</div>
 				<div class="form-group">
-					<input class="form-control" type="password" name="disc_categorie" id="disc_categorie" placeholder="Catégorie de la discipline" required="required" autofocus="autofocus">
+					<select name="disc_categorie" id="disc_categorie" placeholder="Sélectionner une catégorie">
+    					<option value="" disabled selected>Sélectionner une catégorie</option>
+						<?php getListeCategorie() ?>
+					</select>
 				</div>
-				<input id="btn_creerDiscipline" class="btn btn_block" type="button" name="commit" value="Créer la discipline" onclick="aaa()">
+				<input id="btn_creerDiscipline" class="btn btn_block" type="button" name="commit" value="Créer la discipline" onclick="creerDiscipline()">
 				</input>
 				<!--</form>-->
 			</div>

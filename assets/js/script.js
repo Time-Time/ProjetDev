@@ -1,5 +1,4 @@
-
-/* ************************************************************************************ */
+ ************************************************************************************ */
 /*										vue_topbar.php									*/
 /* ************************************************************************************ */
 
@@ -53,7 +52,7 @@ function inscriptionVerifIdentifiants(){
 		xhr.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				if(xhr.responseText == "OK") {
-						/*alert("Utilisateur créé !");*/
+						// alert("Utilisateur créé !");
 						// Redirection vers la page d'accueil.
 						document.location.href="../vues/index.php";
 
@@ -89,7 +88,7 @@ function connexionVerifIdentifiants(){
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			if(xhr.responseText == "OK - identifiants corrects.") {
-					/*alert("Utilisateur reconnu !");*/
+					// alert("Utilisateur reconnu !");
 					document.location.href="../vues/index.php";
 			}else if(xhr.responseText == "KO - Mot de passe errone."){
 					alert("Mot de passe errone.");
@@ -116,18 +115,19 @@ function connexionVerifIdentifiants(){
 /* ************************************************************************************ */
 
 function adminVerifDisciplineNom(){
-	var disNom = document.getElementById("disc_nom").value;
+	var disciplineNom = document.getElementById("disc_nom").value;
 	var xhr = null;
 
 	xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			if(xhr.responseText == "OK - Discipline disponible.") {
-				/*alert("Discipline disponible.");*/
+				// alert("Discipline disponible.");
 			}
 			else{
 				alert("Cette discipline existe déjà.");
-				document.getElementById("disc_nom").focus();
+				// Efface le nom de la discipline saisie par l'utilisateur.
+				document.getElementById("disc_nom").value = "";
 			}
 		}
 	};
@@ -135,11 +135,50 @@ function adminVerifDisciplineNom(){
 	// A placer après la méthode open si on utilise la méthode POST.
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
-	xhr.send("disciplineNom=" + disNom);
+	xhr.send("disciplineNom=" + disciplineNom);
 }
 
-function adminVerifSaisie(){
-}
+/*function creerDiscipline(){
+	var $isFormulaireOk = 'true';
+	// On teste le choix le champ disc_nom.
+	if($isFormulaireOk =='true' && document.getElementById('disc_nom').value == ""){
+		alert('Aucun nom n\'a été saisi.');
+		$isFormulaireOk = 'false';
+	}
+	// On teste le choix le champ disc_description.
+	if($isFormulaireOk =='true' && document.getElementById('disc_description').value == ""){
+		alert('Aucune description n\'a été saisie.');
+		$isFormulaireOk = 'false';
+	}
+	// On teste le choix le champ lstCategorie.
+	if($isFormulaireOk =='true' && document.getElementById('disc_categorie').value == ""){
+		alert('Aucune catégorie n\'a été sélectionnée.');
+		$isFormulaireOk = 'false';
+	}*/
+	/*// Le formulaire a été correctement saisi, on le créé maintenant en base.
+	if($isFormulaireOk){
+		var disc_Nom = document.getElementById("disc_nom").value;
+		var disc_description = document.getElementById("disc_nom").value;
+		var disc_categorie = document.getElementById("disc_nom").value;
+		var xhr = null;
+
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if(xhr.responseText == "OK - Discipline créée.") {
+				}
+				else{
+					alert("Erreur lors de la création de la discipline.");
+				}
+			}
+		};
+		xhr.open("POST", "../controleurs/ctrl_admin.php", true);
+		// A placer après la méthode open si on utilise la méthode POST.
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		// On transmets les valeurs des champs saisis par l'\utilisateur.
+		xhr.send("disc_nom=" + disc_nom && "disc_description=" + disc_description && "disc_categorie=" + disc_categorie);
+	}*/
+/*}*/
 /* ************************************************************************************ */
 /*																						*/
 /* ************************************************************************************ */
