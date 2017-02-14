@@ -13,7 +13,7 @@
 
 		if ($_GET['cat'] == 'jonglage') {
 			$cat_id = 1;
-
+			/*header('Location: vue_discipline.php#Bolas');*/
 		} else if ($_GET['cat'] == 'flux') {
 			$cat_id = 3;
 

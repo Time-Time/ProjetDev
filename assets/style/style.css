@@ -31,6 +31,7 @@ html {
 body {
 	position: relative;
 	min-height: 100%;
+	min-width: 500px;
 	background: url('../img/grey-background.png');
 	background-size: 100% 100%;
 	margin-top:66px;
@@ -65,6 +66,7 @@ body {
 	right: 0;
 	height:66px;
 	width: 100%;
+	min-width: 1000px;
 	z-index: 1000;
 	background: #404852;
 }
@@ -211,7 +213,8 @@ li.dropdown {
 }
 
 .title-container {
-	position: relative;
+	text-align: center;
+	margin: auto;
     padding: 25px 0;
     border-bottom: 1px solid #e5e5e5;
     background-color: #f9f9f9;
@@ -262,13 +265,15 @@ li.dropdown {
 
 .container-caroussel {
 	position: relative;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
+	margin: auto;
 	width: 1000px;
 	/*height: 500px;
 	display: table-cell;
 	vertical-align: bottom;*/
 	background-color: white;
 	margin-bottom: 50px;
+	text-align: center;
 }
 
 .image-carousel {

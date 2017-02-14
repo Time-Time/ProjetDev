@@ -12,7 +12,7 @@
 		<div id="main" <!-- style="background-color: green -->">
 			<?php 
 				foreach ($tab_disciplines as $value) {
-					echo '<div class="discipline-container">
+					echo '<div id="'.$value->disc_nom.'" class="discipline-container">
 						      <div class= "texte-disc">
 						      <div class= "titre-disc">'.$value->disc_nom.'</div><br/>
 						      <div class= "description-disc">'.$value->disc_desc.'</div>

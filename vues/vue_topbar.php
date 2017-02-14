@@ -6,7 +6,7 @@
 			<li class ="dropdown">
 				<a class="dropbtn" href="vue_discipline.php?cat=jonglage">Jonglage</a>
 				<div class= "dropdown-content">
-					<a href="vue_discipline.php?cat=jonglage&disc=bolas">Bolas</a>
+					<a href="#Bolas">Bolas</a>
 					<a href="vue_discipline.php?cat=jonglage&disc=contact">Contact</a>
 					<a href="vue_discipline.php?cat=jonglage&disc=staff">Staff</a>
 				</div>
@@ -20,7 +20,6 @@
 				</div>
 			</li>
 			<li><a href="vue_galerie.php">Gallerie</a></li>
-			<li><a href="vue_contact.php">Contact</a></li>
 			<li><a href="vue_admin.php">Admin</a></li>
 		</ul>
 	</nav>

@@ -10,7 +10,7 @@
 			<h1 class="title">Galerie photo</h1>
 		</div>
 	</div>
-	<div id="main" style="width:1500px; text-align: center">
+	<div id="main" style="text-align: center">
 
 		<div class="container-caroussel">
 			<div id= "carousel">
