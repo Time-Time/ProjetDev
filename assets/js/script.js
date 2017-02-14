@@ -162,27 +162,33 @@ function getListeCategorie(){
 }
 
 function creerDiscipline(){
-	var $isFormulaireOk = 'true';
+	var isFormulaireOk = 'true';
 	// On teste le choix le champ disc_nom.
-	if($isFormulaireOk =='true' && document.getElementById('disc_nom').value == ""){
+	if(isFormulaireOk =='true' && document.getElementById('disc_nom').value == ""){
 		alert('Aucun nom n\'a été saisi.');
-		$isFormulaireOk = 'false';
+		isFormulaireOk = 'false';
 	}
 	// On teste le choix le champ disc_description.
-	if($isFormulaireOk =='true' && document.getElementById('disc_description').value == ""){
+	if(isFormulaireOk =='true' && document.getElementById('disc_description').value == ""){
 		alert('Aucune description n\'a été saisie.');
-		$isFormulaireOk = 'false';
+		isFormulaireOk = 'false';
 	}
 	// On teste le choix le champ lstCategorie.
-	if($isFormulaireOk =='true' && document.getElementById('disc_categorie').value == ""){
+	if(isFormulaireOk =='true' && document.getElementById('disc_categorie').value == ""){
 		alert('Aucune catégorie n\'a été sélectionnée.');
-		$isFormulaireOk = 'false';
+		isFormulaireOk = 'false';
+	}
+	// On teste le choix le champ lstCategorie.
+	if(isFormulaireOk =='true' && document.getElementById('disc_urlImage').value == ""){
+		alert('Aucune URL n\'a été saisie.');
+		isFormulaireOk = 'false';
 	}
 	// Le formulaire a été correctement saisi, on le créé maintenant en base.
-	if($isFormulaireOk){
+	if(isFormulaireOk){
 		var disc_nom = document.getElementById("disc_nom").value;
 		var disc_description = document.getElementById("disc_description").value;
 		var disc_categorie = document.getElementById("disc_categorie").value;
+		var disc_urlImage = document.getElementById("disc_urlImage").value;
 		var xhr = null;
 
 		xhr = new XMLHttpRequest();
@@ -200,7 +206,7 @@ function creerDiscipline(){
 		// A placer après la méthode open si on utilise la méthode POST.
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		// On transmets les valeurs des champs saisis par l'\utilisateur.
-		xhr.send("disc_nom=" + disc_nom + "&" + "disc_description=" + disc_description + "&" + "disc_categorie=" + disc_categorie);
+		xhr.send("disc_nom=" + disc_nom + "&" + "disc_description=" + disc_description + "&" + "disc_categorie=" + disc_categorie + "&" + "disc_urlImage=" + disc_urlImage);
 	}
 }
 /* ************************************************************************************ */

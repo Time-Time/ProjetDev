@@ -14,7 +14,9 @@
 		}
 	}
 	if(isset($_POST["disc_nom"]) && isset($_POST["disc_description"]) && isset($_POST["disc_categorie"])){
+
 		insertDiscipline($bdd, $_POST["disc_nom"], $_POST["disc_description"], $_POST["disc_categorie"]);
+		
 		echo 'OK - Discipline créée.';
 	}
 	function getListeCategorie() {
@@ -26,5 +28,10 @@
 		{
 			echo '<option>'.$categorie['categorie'].'</option>';
 		}
+	}
+	function deplacerFichier(){
+		// bool move_uploaded_file ( string $filename , string $destination )
+		$resultat = move_uploaded_file('../test.txt', '../assets/img/test.txt');
+		echo 'Réponse au déplacement du fichier :' + $resultat;
 	}
 ?>
