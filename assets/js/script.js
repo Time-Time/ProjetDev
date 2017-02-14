@@ -114,29 +114,6 @@ function connexionVerifIdentifiants(){
 /*									vue_admin.php										*/
 /* ************************************************************************************ */
 
-function getListeCategorie(){
-	var xhr = null;
-
-	xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			if(xhr.responseText == "OK.") {
-				// alert("Discipline disponible.");
-			}
-			else{
-				alert("Erreur lors de la récupération des catégories.");
-				// Efface le nom de la discipline saisie par l'utilisateur.
-				document.getElementById("disc_nom").value = "";
-			}
-		}
-	};
-	xhr.open("POST", "../controleurs/ctrl_admin.php", true);
-	// A placer après la méthode open si on utilise la méthode POST.
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
-	xhr.send();
-}
-
 function adminVerifDisciplineNom(){
 	var disciplineNom = document.getElementById("disc_nom").value;
 	var xhr = null;
@@ -161,6 +138,29 @@ function adminVerifDisciplineNom(){
 	xhr.send("disciplineNom=" + disciplineNom);
 }
 
+function getListeCategorie(){
+	var xhr = null;
+
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			if(xhr.responseText == "OK.") {
+				// alert("Discipline disponible.");
+			}
+			else{
+				alert("Erreur lors de la récupération des catégories.");
+				// Efface le nom de la discipline saisie par l'utilisateur.
+				document.getElementById("disc_nom").value = "";
+			}
+		}
+	};
+	xhr.open("POST", "../controleurs/ctrl_admin.php", true);
+	// A placer après la méthode open si on utilise la méthode POST.
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
+	xhr.send();
+}
+
 function creerDiscipline(){
 	var $isFormulaireOk = 'true';
 	// On teste le choix le champ disc_nom.
@@ -180,18 +180,19 @@ function creerDiscipline(){
 	}
 	// Le formulaire a été correctement saisi, on le créé maintenant en base.
 	if($isFormulaireOk){
-		var disc_Nom = document.getElementById("disc_nom").value;
-		var disc_description = document.getElementById("disc_nom").value;
-		var disc_categorie = document.getElementById("disc_nom").value;
+		var disc_nom = document.getElementById("disc_nom").value;
+		var disc_description = document.getElementById("disc_description").value;
+		var disc_categorie = document.getElementById("disc_categorie").value;
 		var xhr = null;
 
 		xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				if(xhr.responseText == "OK - Discipline créée.") {
+					alert("La discipline a été créée.")
 				}
 				else{
-					alert("Erreur lors de la création de la discipline.");
+					alert("Erreur lors de la création de la discipline.\n\nErreur :\n\n" + xhr.responseText);
 				}
 			}
 		};
@@ -199,11 +200,8 @@ function creerDiscipline(){
 		// A placer après la méthode open si on utilise la méthode POST.
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		// On transmets les valeurs des champs saisis par l'\utilisateur.
-		xhr.send("disc_nom=" + disc_nom && "disc_description=" + disc_description && "disc_categorie=" + disc_categorie);
+		xhr.send("disc_nom=" + disc_nom + "&" + "disc_description=" + disc_description + "&" + "disc_categorie=" + disc_categorie);
 	}
-}
-function adminVerifSaisie(){
-
 }
 /* ************************************************************************************ */
 /*																						*/

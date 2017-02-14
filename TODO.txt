@@ -14,3 +14,4 @@ Tâches restantes :
 
 	Formulaire pour saisir une discipline + contrôles de saisie.
 	Créer un champ de saisie suffisament grand pour visualiser plusieurs lignes de la description lorsque l'utilisateur est en train de la saisir.
+	Ajouter un champ pour lier une image à cette nouvelle discipline.

@@ -92,26 +92,31 @@
 
 	function verifDisciplineExist($bdd, $disciplineNom) {
 		// On teste l'existence du pseudo et du mot de passe dans la base de données.
-		$req = $bdd->query('SELECT COUNT(*) AS nbDiscipline FROM discipline WHERE disc_nom = \''.$disciplineNom.'\'');
+		$req = $bdd->query('
+			SELECT COUNT(*) AS nbDiscipline FROM discipline WHERE disc_nom = \''.$disciplineNom.'\';
+			');
 		// On stocke le résultat de la requête dans un tableau.
 		$donnees = $req->fetch();
 		$req->closeCursor(); // Termine le traitement de la requête
 		return $donnees;
 	}
-	/*// Insère un enouvelle discipline dans la base.
+	// Insère un enouvelle discipline dans la base.
 	function insertDiscipline($bdd, $disc_nom, $disc_description, $disc_categorie){
-		$disc_cat_identifiant = getCatIdUsingCatNom($bdd, $disc_categorie);
+		// On récupère l'id de la catégorie sélectionnée.
+		$disc_cat_identifiant = getCatIdUsingCatNom($bdd, $disc_categorie)['cat_id'];
 		$req = $bdd->query('
-			INSERT INTO discipline (disc_nom, disc_desc, disc_cat_id)
-			VALUES(\''.$disc_nom.'\', \''.$disc_description.'\', \''.$disc_cat_identifiant'\')
+			INSERT INTO discipline (disc_nom, disc_desc, disc_cat_id, disc_img_id)
+			VALUES(\''.$disc_nom.'\', \''.$disc_description.'\', '.$disc_cat_identifiant.', 0);
 			');
 		$req->closeCursor(); // Termine le traitement de la requête
 	}
 	// Retourne l'id d'une catégorie en fonction d'un nom.
 	function getCatIdUsingCatNom($bdd, $cat_nom){
-		$req = $bdd -> query('SELECT cat_id FROM categorie WHERE cat_nom = \''.$cat_nom.'\'');
+		$req = $bdd -> query('
+			SELECT cat_id FROM categorie WHERE cat_nom = \''.$cat_nom.'\';
+			');
 		$donnee = $req->fetch();
 		$req->closeCursor();
 		return $donnee;
-	}*/
+	}
 ?>
