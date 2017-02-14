@@ -1,5 +1,5 @@
 <?php require_once("vue_head.php"); ?>
-	<body>
+	<body onload="">
 		<?php
 			require_once("vue_topbar.php");
 			require_once("../controleurs/ctrl_admin.php");
@@ -19,9 +19,9 @@
 					<input class="form-control" type="text" name="disc_description" id="disc_description" placeholder="Description de la discipline" required="required" autofocus="autofocus" maxlength="4294967296">
 				</div>
 				<div class="form-group">
-					<select name="disc_categorie" id="disc_categorie" placeholder="Sélectionner une catégorie">
+					<select name="disc_categorie" id="disc_categorie" placeholder="Sélectionner une catégorie" onclick="getListeCategorie()">
     					<option value="" disabled selected>Sélectionner une catégorie</option>
-						<?php getListeCategorie() ?>
+    					<?php require_once("../controleurs/ctrl_admin.php"); ?>
 					</select>
 				</div>
 				<input id="btn_creerDiscipline" class="btn btn_block" type="button" name="commit" value="Créer la discipline" onclick="creerDiscipline()">

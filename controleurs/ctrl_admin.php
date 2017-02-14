@@ -21,10 +21,21 @@
 		// insertDiscipline($bdd, $_POST["disc_nom"], $_POST["disc_description"], $_POST["disc_categorie"]);
 		echo 'OK - Discipline créée.';
 	}*/
-	function getListeCategorie() {
+	/*function getListeCategorie() {
 		$bdd = new PDO('mysql:host=localhost;dbname=bf_web;charset=utf8', 'root', '');
 		// Appel de la fonction retournant la liste des catégories.
 		$tableauCategorie = $bdd->query('SELECT cat_nom AS categorie FROM categorie');
+		// On boucle sur les catégories contenues dans le résultat de la requête.
+		while($categorie = $tableauCategorie->fetch())
+		{
+			echo '<option>'.$categorie['categorie'].'</option>';
+		}
+	}*/
+	if(isset($_POST["disc_categorie"])){
+		$bdd = new PDO('mysql:host=localhost;dbname=bf_web;charset=utf8', 'root', '');
+		// Appel de la fonction retournant la liste des catégories.
+		$tableauCategorie = $bdd->query('SELECT cat_nom AS categorie FROM categorie');
+		echo 'OK.';
 		// On boucle sur les catégories contenues dans le résultat de la requête.
 		while($categorie = $tableauCategorie->fetch())
 		{

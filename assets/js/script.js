@@ -1,4 +1,4 @@
- ************************************************************************************ */
+/* ************************************************************************************ */
 /*										vue_topbar.php									*/
 /* ************************************************************************************ */
 
@@ -24,7 +24,7 @@ $(document).ready(function(){
 
 function verifConfirmationPassword()
 {
-	if($("#password").val()  == $("#passwordConfirm").val() && $("#password").val().length > 0 )
+	if($("#password").val() == $("#passwordConfirm").val() && $("#password").val().length > 0 )
 	{
 		// Les deux mots de passes sont identiques
 		$("btn_inscription").val().enabled();
@@ -111,8 +111,31 @@ function connexionVerifIdentifiants(){
 }
 
 /* ************************************************************************************ */
-/*									vue_admin.php									*/
+/*									vue_admin.php										*/
 /* ************************************************************************************ */
+
+function getListeCategorie(){
+	var xhr = null;
+
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			if(xhr.responseText == "OK.") {
+				// alert("Discipline disponible.");
+			}
+			else{
+				alert("Erreur lors de la récupération des catégories.");
+				// Efface le nom de la discipline saisie par l'utilisateur.
+				document.getElementById("disc_nom").value = "";
+			}
+		}
+	};
+	xhr.open("POST", "../controleurs/ctrl_admin.php", true);
+	// A placer après la méthode open si on utilise la méthode POST.
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
+	xhr.send();
+}
 
 function adminVerifDisciplineNom(){
 	var disciplineNom = document.getElementById("disc_nom").value;
@@ -138,7 +161,7 @@ function adminVerifDisciplineNom(){
 	xhr.send("disciplineNom=" + disciplineNom);
 }
 
-/*function creerDiscipline(){
+function creerDiscipline(){
 	var $isFormulaireOk = 'true';
 	// On teste le choix le champ disc_nom.
 	if($isFormulaireOk =='true' && document.getElementById('disc_nom').value == ""){
@@ -154,8 +177,8 @@ function adminVerifDisciplineNom(){
 	if($isFormulaireOk =='true' && document.getElementById('disc_categorie').value == ""){
 		alert('Aucune catégorie n\'a été sélectionnée.');
 		$isFormulaireOk = 'false';
-	}*/
-	/*// Le formulaire a été correctement saisi, on le créé maintenant en base.
+	}
+	// Le formulaire a été correctement saisi, on le créé maintenant en base.
 	if($isFormulaireOk){
 		var disc_Nom = document.getElementById("disc_nom").value;
 		var disc_description = document.getElementById("disc_nom").value;
@@ -177,8 +200,11 @@ function adminVerifDisciplineNom(){
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		// On transmets les valeurs des champs saisis par l'\utilisateur.
 		xhr.send("disc_nom=" + disc_nom && "disc_description=" + disc_description && "disc_categorie=" + disc_categorie);
-	}*/
-/*}*/
+	}
+}
+function adminVerifSaisie(){
+
+}
 /* ************************************************************************************ */
 /*																						*/
 /* ************************************************************************************ */
