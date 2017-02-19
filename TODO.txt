@@ -15,4 +15,4 @@ Tâches restantes :
 	Formulaire pour saisir une discipline + contrôles de saisie.
 	Créer un champ de saisie suffisament grand pour visualiser plusieurs lignes de la description lorsque l'utilisateur est en train de la saisir.
 	Ajouter un sélecteur pour lister toutes les images disponibles de la base de données.
-	Ajouter un bouton pour pouvoir ajouter une nouvelle image dans le dossier .
+	Fonction qui créé l'image en base lorsqu'on copie un fichier dans le répertoire "../images".

@@ -137,7 +137,7 @@ function adminVerifDisciplineNom(){
 	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
 	xhr.send("disciplineNom=" + disciplineNom);
 }
-
+/*
 function getListeCategorie(){
 	var xhr = null;
 
@@ -145,12 +145,10 @@ function getListeCategorie(){
 	xhr.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			if(xhr.responseText == "OK.") {
-				// alert("Discipline disponible.");
+				// Les catégories sont chargées dans l'objet de type select.
 			}
 			else{
 				alert("Erreur lors de la récupération des catégories.");
-				// Efface le nom de la discipline saisie par l'utilisateur.
-				document.getElementById("disc_nom").value = "";
 			}
 		}
 	};
@@ -159,7 +157,28 @@ function getListeCategorie(){
 	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
 	xhr.send();
-}
+}*/
+
+/*function getListeImageNom(){
+	var xhr = null;
+
+	xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			if(xhr.responseText == "OK.") {
+				// Les noms d'image sont chargés dans l'objet de type select.
+			}
+			else{
+				alert("Erreur lors de la récupération des noms d'image.");
+			}
+		}
+	};
+	xhr.open("POST", "../controleurs/ctrl_admin.php", true);
+	// A placer après la méthode open si on utilise la méthode POST.
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
+	xhr.send();
+}*/
 
 function creerDiscipline(){
 	var isFormulaireOk = 'true';
@@ -180,7 +199,7 @@ function creerDiscipline(){
 	}
 	// On teste le choix le champ lstCategorie.
 	if(isFormulaireOk =='true' && document.getElementById('disc_urlImage').value == ""){
-		alert('Aucune URL n\'a été saisie.');
+		alert('Aucune image n\'a été sélectionnée.');
 		isFormulaireOk = 'false';
 	}
 	// Le formulaire a été correctement saisi, on le créé maintenant en base.
