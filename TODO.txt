@@ -16,3 +16,5 @@ Tâches restantes :
 	Créer un champ de saisie suffisament grand pour visualiser plusieurs lignes de la description lorsque l'utilisateur est en train de la saisir.
 	Ajouter un sélecteur pour lister toutes les images disponibles de la base de données.
 	Fonction qui créé l'image en base lorsqu'on copie un fichier dans le répertoire "../images".
+	Rendre paramétrable l'id de l'image lros de la création d'une nouvelle disciplie. (Actuellement id 0 par défaut).
+	Trouver un moyen pour que l'utilisateur puisse modifier les descriptions des images ou des disciplines.

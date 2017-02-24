@@ -100,7 +100,7 @@
 		$req->closeCursor(); // Termine le traitement de la requête
 		return $donnees;
 	}
-	// Insère un enouvelle discipline dans la base.
+	// Insère une nouvelle discipline dans la base.
 	function insertDiscipline($bdd, $disc_nom, $disc_description, $disc_categorie){
 		// On récupère l'id de la catégorie sélectionnée.
 		$disc_cat_identifiant = getCatIdUsingCatNom($bdd, $disc_categorie)['cat_id'];
@@ -119,4 +119,14 @@
 		$req->closeCursor();
 		return $donnee;
 	}
+	// Insère un tuple dans la table image.
+	function insertImage($bdd, $url){
+		$req = $bdd -> query('
+			INSERT INTO image (img_desc, img_url) VALUES(\'Description par defaut\', \''.$url.'\');
+			');
+		$req -> closeCursor();
+	}
+	/*********************************************************
+	************************ ***** ***************************
+	**********************************************************/
 ?>

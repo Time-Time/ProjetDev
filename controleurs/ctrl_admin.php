@@ -71,8 +71,10 @@
 		}
 		$cheminDossierDepart = $_FILES['fichierCopie']['tmp_name'];
 		$cheminDossierDestination = "../assets/img/" . $_FILES['fichierCopie']['name'];
+		$cheminImageBase = "http://localhost/ProjetWeb/assets/img/" . $_FILES['fichierCopie']['name'];
 		$resultat = move_uploaded_file($cheminDossierDepart, $cheminDossierDestination);
 		if ($resultat){
+			insertImage($bdd, $cheminImageBase);
 			echo "Transfert réussi.";
 		}
 	}
