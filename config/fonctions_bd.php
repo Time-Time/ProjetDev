@@ -74,7 +74,7 @@
 
 	function selectDiscByCat($bdd, $cat) {
 		$req = $bdd->query('SELECT disc_nom, disc_desc, img_url
-							FROM discipline JOIN image ON discipline.disc_img_id = image.img_id 
+							FROM discipline JOIN image ON discipline.disc_id = image.img_disc_id
 							WHERE disc_cat_id =\''.$cat.'\'');
 		$donnees = $req->fetchAll(PDO::FETCH_OBJ);
 		$req->closeCursor();
