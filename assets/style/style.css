@@ -267,7 +267,7 @@ li.dropdown {
 	position: relative;
 	/*margin: 0 auto;*/
 	margin: auto;
-	width: 1000px;
+	/*width: 1000px;*/
 	/*height: 500px;
 	display: table-cell;
 	vertical-align: bottom;*/
@@ -283,9 +283,11 @@ li.dropdown {
 }
 
 .container-miniatures {
-	display: inline-table;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	width: 100%;
-	height: 100px;
+	height: auto;
 	background-color: lightgrey;
 }
 
