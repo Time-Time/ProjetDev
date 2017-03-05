@@ -5,7 +5,6 @@
 
 	$disciplines = selectDisc($bdd);
 
-
 	if (isset($_GET['cat'])) {
 
 		// récupération du nom de la catégorie pour l'afficher dans la page des disciplines
@@ -30,6 +29,4 @@
 		echo '<h1>ERROR, pas de catégorie en paramètre par $GET</h1>';
 		$tab_disciplines = null;
 	}
-
-
 ?>

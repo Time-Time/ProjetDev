@@ -43,6 +43,10 @@ body {
 	margin: 0 15px;
 }
 
+.container-admin {
+	height: 700px;
+}
+
 .container-form {
 	overflow: hidden;
     padding : 60px 300px;
@@ -193,6 +197,17 @@ li.dropdown {
 	border-radius: 25px;
 }
 
+.textarea-disc {
+	height:200px; 
+	font-family: Arial !important;
+}
+
+.listbox-disc {
+	width: 200px;
+	margin-left: 50px;
+	float: right;
+}
+
 .texte-disc {
 	margin : 10px 100px 10px 15px;
 }
@@ -201,8 +216,13 @@ li.dropdown {
 	font-size: 25px;
 }
 
-.description-disc {
+.btn_creerdisc {
+	width : 200px;
+}
 
+.label-admin {
+	color: #78ab4e;
+	font-size: x-large;
 }
 
 .img-discipline {
@@ -307,7 +327,7 @@ li.dropdown {
 	height: 50px;
     margin-top: 20px;
     padding-top: 15px;
-    text-align: center;
+    text-align: center; 
     font-size: .9em;
     background-color: #404852;
     border-top: 3px solid #404852;
