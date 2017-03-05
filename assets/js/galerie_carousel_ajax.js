@@ -1,4 +1,6 @@
-//On teste le navigateur afin de specificié l'objet XmlHttpRequest 
+
+
+//On teste le navigateur afin de specificier l'objet XmlHttpRequest 
 function getXmlHttpRequestObject() {
 	if (window.XMLHttpRequest) {
 		return new XMLHttpRequest(); //Mozilla, Safari ...
@@ -10,7 +12,7 @@ function getXmlHttpRequestObject() {
 	}
 }
 
-//On créer notre objet
+//On créer notre objet XmlHttpRequest 
 var xmlHTTP = getXmlHttpRequestObject();
 
 //On initialise notre requête
@@ -45,7 +47,7 @@ $(document).ready(function(){
 
 
 
-
+// Gestion de l'affichage des images en grandes taille dans le carousel
 function carousel(img_id) {
 
 	// miniature cliquée
