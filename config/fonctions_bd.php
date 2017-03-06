@@ -8,7 +8,7 @@
 	{
 		// On teste l'existence du pseudo dans la base de données.
 		$req = $bdd->query('
-			INSERT INTO membre (mem_pseudo, mem_pwd, mem_admin)
+			INSERT INTO membre(mem_pseudo, mem_pwd, mem_admin)
 			VALUES(\''.$pseudo.'\', \''.$password.'\', \''.$droit.'\');
 			');
 		$req->closeCursor(); // Termine le traitement de la requête.
@@ -90,6 +90,15 @@
 	************************ ADMIN ***************************
 	**********************************************************/
 
+
+	// Retourne 0 si l'utilisateur est Admin, 0 sinon
+	function verifAdmin($bdd, $pseudo) {
+		$req = $bdd->query('SELECT mem_admin FROM membre WHERE mem_pseudo = \''.$pseudo.'\'');
+		$donnee = $req->fetch();
+		$req->closeCursor();
+		return $donnee;
+	}
+
 	function verifDisciplineExist($bdd, $disciplineNom) {
 		// On teste l'existence du pseudo et du mot de passe dans la base de données.
 		$req = $bdd->query('
@@ -100,6 +109,7 @@
 		$req->closeCursor(); // Termine le traitement de la requête
 		return $donnees;
 	}
+
 	// Insère une nouvelle discipline dans la base.
 	function insertDiscipline($bdd, $disc_nom, $disc_description, $disc_categorie){
 		// On récupère l'id de la catégorie sélectionnée.
@@ -110,6 +120,7 @@
 			');
 		$req->closeCursor(); // Termine le traitement de la requête
 	}
+
 	// Retourne l'id d'une catégorie en fonction d'un nom.
 	function getCatIdUsingCatNom($bdd, $cat_nom){
 		$req = $bdd -> query('
@@ -119,6 +130,7 @@
 		$req->closeCursor();
 		return $donnee;
 	}
+
 	// Insère un tuple dans la table image.
 	function insertImage($bdd, $url){
 		$req = $bdd -> query('
