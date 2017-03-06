@@ -1,32 +1,10 @@
 ﻿Tâches restantes :
 
-
-- Coder les fonctions pour récupérer / insérer des données dans la BD (inscription & connexion)
-- effectuer les controles (ctrl_connexion & ctrl_inscription) et coder les actions a effectuer en conséquence
-	- affichage AJAX des erreurs sur les pages connex et inscript
-
-
-- coder le carousel
-
-.... ACOMPLETER
-
--	Créer une page d'administration comportant :
-
-	Formulaire pour saisir une discipline + contrôles de saisie.
-	Créer un champ de saisie suffisament grand pour visualiser plusieurs lignes de la description lorsque l'utilisateur est en train de la saisir.
-	Ajouter un sélecteur pour lister toutes les images disponibles de la base de données.
-	Fonction qui créé l'image en base lorsqu'on copie un fichier dans le répertoire "../images".
-	Rendre paramétrable l'id de l'image lros de la création d'une nouvelle disciplie. (Actuellement id 0 par défaut).
-	Trouver un moyen pour que l'utilisateur puisse modifier les descriptions des images ou des disciplines.
-
-
-
 Derniers points à finir :
 
 Page admin
-
-on a 2 formulaires indépendants : ajout image et ajout discipline
-Pour chaque formulaires, vérifier EN PREMIER que chacun des champs qui le composent soit renseigné avec des isset (sinon alert ... veuillez renseigner tous les champs ...)
-
-Lorsque la création de la discipline est Ok : alert(discipline ajouté) et faire un clean de la page (enlever les info saisies ou faire un refresh)
-Ne rendre possible la consultation de la page admin (onglet visible) que si estConnecte && estAdmin
+	Formulaire Image :
+		==>	Rendre paramétrable l'id de l'image lors de la création d'une nouvelle disciplie. (Actuellement id 0 par défaut).
+			Appeler la fonction de déplacement d'image via de l'AJAX et non directement par la vue.
+		==> Vérifier EN PREMIER champ desc image saisi puis vérifier qu'une image est saisie aussi (actuellement on peut ajouter une image même si le fichier n'est pas transféré dans le dossier /img).
+		==>	Ne rendre possible la consultation de la page admin (onglet visible) que si estConnecte && estAdmin
