@@ -8,7 +8,7 @@
 	{
 		// On teste l'existence du pseudo dans la base de données.
 		$req = $bdd->query('
-			INSERT INTO membre (mem_pseudo, mem_pwd, mem_admin)
+			INSERT INTO membre(mem_pseudo, mem_pwd, mem_admin)
 			VALUES(\''.$pseudo.'\', \''.$password.'\', \''.$droit.'\');
 			');
 		$req->closeCursor(); // Termine le traitement de la requête.
@@ -90,8 +90,9 @@
 	************************ ADMIN ***************************
 	**********************************************************/
 
+
 	function verifImageExist($bdd, $imageNom) {
-		// On teste l'existence du pseudo et du mot de passe dans la base de données.
+		// On teste l'existence de l'image dans la base de données.
 		$req = $bdd->query('
 			SELECT COUNT(*) AS nbImage FROM image WHERE img_desc = \''.$imageNom.'\';
 			');
@@ -99,6 +100,14 @@
 		$donnees = $req->fetch();
 		$req->closeCursor(); // Termine le traitement de la requête
 		return $donnees;
+	}
+
+	// Retourne 0 si l'utilisateur est Admin, 0 sinon
+	function verifAdmin($bdd, $pseudo) {
+		$req = $bdd->query('SELECT mem_admin FROM membre WHERE mem_pseudo = \''.$pseudo.'\'');
+		$donnee = $req->fetch();
+		$req->closeCursor();
+		return $donnee;
 	}
 
 	function verifDisciplineExist($bdd, $disciplineNom) {
@@ -144,7 +153,7 @@
 		$req->closeCursor();
 		return $donnee;
 	}
-
+	
 	// Insère un tuple dans la table image.
 	function insertImage($bdd, $img_desc){
 		$req = $bdd -> query('
