@@ -90,8 +90,19 @@
 	************************ ADMIN ***************************
 	**********************************************************/
 
-	function verifDisciplineExist($bdd, $disciplineNom) {
+	function verifImageExist($bdd, $imageNom) {
 		// On teste l'existence du pseudo et du mot de passe dans la base de données.
+		$req = $bdd->query('
+			SELECT COUNT(*) AS nbImage FROM image WHERE img_desc = \''.$imageNom.'\';
+			');
+		// On stocke le résultat de la requête dans un tableau.
+		$donnees = $req->fetch();
+		$req->closeCursor(); // Termine le traitement de la requête
+		return $donnees;
+	}
+
+	function verifDisciplineExist($bdd, $disciplineNom) {
+		// On teste l'existence de la discipline dans la base de données.
 		$req = $bdd->query('
 			SELECT COUNT(*) AS nbDiscipline FROM discipline WHERE disc_nom = \''.$disciplineNom.'\';
 			');
@@ -100,16 +111,20 @@
 		$req->closeCursor(); // Termine le traitement de la requête
 		return $donnees;
 	}
+
 	// Insère une nouvelle discipline dans la base.
-	function insertDiscipline($bdd, $disc_nom, $disc_description, $disc_categorie){
+	function insertDiscipline($bdd, $disc_nom, $disc_description, $disc_categorie, $disc_image){
 		// On récupère l'id de la catégorie sélectionnée.
 		$disc_cat_identifiant = getCatIdUsingCatNom($bdd, $disc_categorie)['cat_id'];
+		// On récupère l'id de l'image sélectionnée.
+		$disc_img_id = getImgIdUsingImgDesc($bdd, $disc_image)['img_id'];
 		$req = $bdd->query('
 			INSERT INTO discipline (disc_nom, disc_desc, disc_cat_id, disc_img_id)
-			VALUES(\''.$disc_nom.'\', \''.$disc_description.'\', '.$disc_cat_identifiant.', 0);
+			VALUES(\''.$disc_nom.'\', \''.$disc_description.'\', '.$disc_cat_identifiant.', \''.$disc_img_id.'\');
 			');
 		$req->closeCursor(); // Termine le traitement de la requête
 	}
+
 	// Retourne l'id d'une catégorie en fonction d'un nom.
 	function getCatIdUsingCatNom($bdd, $cat_nom){
 		$req = $bdd -> query('
@@ -119,13 +134,25 @@
 		$req->closeCursor();
 		return $donnee;
 	}
-	// Insère un tuple dans la table image.
-	function insertImage($bdd, $url){
+
+	// Retourne l'id d'une image en fonction d'une description.
+	function getImgIdUsingImgDesc($bdd, $img_desc){
 		$req = $bdd -> query('
-			INSERT INTO image (img_desc, img_url) VALUES(\'Description par defaut\', \''.$url.'\');
+			SELECT img_id FROM image WHERE img_desc = \''.$img_desc.'\';
+			');
+		$donnee = $req->fetch();
+		$req->closeCursor();
+		return $donnee;
+	}
+
+	// Insère un tuple dans la table image.
+	function insertImage($bdd, $img_desc){
+		$req = $bdd -> query('
+			INSERT INTO image (img_desc, img_url) VALUES(\''.$img_desc.'\', \'Url par defaut\');
 			');
 		$req -> closeCursor();
 	}
+	
 	/*********************************************************
 	************************ ***** ***************************
 	**********************************************************/

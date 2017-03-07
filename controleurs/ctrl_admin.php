@@ -2,6 +2,22 @@
 	// Appel des fonctions propres à la base de données.
 	require_once("../config/fonctions_bd.php");
 	require_once("../config/connexion_bd.php");
+
+	// ******************************************************************************** //
+	// 		Vérification existence nom image - AJAX								//
+	// ******************************************************************************** //
+	if(isset($_POST["imageDescription"])){
+		$ImageDesc = verifImageExist($bdd, $_POST["imageDescription"]);
+			// Relève le nombre d'occurrence de la discipline.
+		$nbImageDesc = $ImageDesc['nbImage'];
+		if($nbImageDesc == 0){
+			insertImage($bdd, $_POST["imageDescription"]);
+			echo 'OK - Image disponible.';
+		}else{
+			echo 'KO - Une image du même nom existe déjà.';
+		}
+	}
+
 	// ******************************************************************************** //
 	// 		Vérification existence nom discipline - AJAX								//
 	// ******************************************************************************** //
@@ -9,20 +25,21 @@
 		$disciplineNom = verifDisciplineExist($bdd, $_POST["disciplineNom"]);
 			// Relève le nombre d'occurrence de la discipline.
 		$nbDisciplineNom = $disciplineNom['nbDiscipline'];
-		/*echo $nombreLigne;*/
 		if($nbDisciplineNom == 0){
 			echo 'OK - Discipline disponible.';
 		}else{
 			echo 'KO - Cette discipline existe déjà.';
 		}
 	}
+
 	// ******************************************************************************** //
 	// 		Création d'une nouvelle discipline - AJAX									//
 	// ******************************************************************************** //
-	if(isset($_POST["disc_nom"]) && isset($_POST["disc_description"]) && isset($_POST["disc_categorie"])){
-		insertDiscipline($bdd, $_POST["disc_nom"], $_POST["disc_description"], $_POST["disc_categorie"]);
+	if(isset($_POST["disc_nom"]) && isset($_POST["disc_description"]) && isset($_POST["disc_categorie"]) && isset($_POST["disc_image"])){
+		insertDiscipline($bdd, $_POST["disc_nom"], $_POST["disc_description"], $_POST["disc_categorie"], $_POST["disc_image"]);
 		echo 'OK - Discipline créée.';
 	}
+
 	// ******************************************************************************** //
 	// 		FONCTION : Obtenir la liste des catégories existantes						//
 	// ******************************************************************************** //
@@ -36,6 +53,7 @@
 			echo '<option>'.$categorie['categorie'].'</option>';
 		}
 	}
+
 	// ******************************************************************************** //
 	// 		FONCTION : Obtenir la liste des noms d'image existants						//
 	// ******************************************************************************** //
@@ -49,6 +67,7 @@
 			echo '<option>'.$image['imageNom'].'</option>';
 		}
 	}
+
 	// ******************************************************************************** //
 	// 		Copie d'un fichier sélectionné dans le répertoire des images				//
 	// ******************************************************************************** //
@@ -58,13 +77,13 @@
 			echo "Fichier manquant";
 			break;
 			case UPLOAD_ERR_INI_SIZE:
-			echo "Fichier dépasse la taille autorisée par PHP";
+			echo "Le fichier dépasse la taille autorisée par PHP";
 			break;
 			case UPLOAD_ERR_FORM_SIZE:
-			echo "Fichier dépasse la taille autorisée par le formulaire";
+			echo "Le fichier dépasse la taille autorisée par le formulaire";
 			break;
 			case UPLOAD_ERR_PARTIAL:
-			echo "Fichier transféré partiellemnt";
+			echo "Le fichier transféré partiellemnt";
 			break;
 			default :
 			echo "Téléchargement OK";
@@ -75,7 +94,7 @@
 		$resultat = move_uploaded_file($cheminDossierDepart, $cheminDossierDestination);
 		if ($resultat){
 			insertImage($bdd, $cheminImageBase);
-			echo "Transfert réussi.";
+			echo "OK - Fichie selectionne.";
 		}
 	}
 ?>

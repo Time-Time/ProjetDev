@@ -126,7 +126,7 @@ function adminVerifDisciplineNom(){
 			}
 			else{
 				alert("Cette discipline existe déjà.");
-				// Efface le nom de la discipline saisie par l'utilisateur.
+				// Efface le nom de la discipline saisi par l'utilisateur.
 				document.getElementById("disc_nom").value = "";
 			}
 		}
@@ -137,95 +137,114 @@ function adminVerifDisciplineNom(){
 	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
 	xhr.send("disciplineNom=" + disciplineNom);
 }
-/*
-function getListeCategorie(){
-	var xhr = null;
 
-	xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			if(xhr.responseText == "OK.") {
-				// Les catégories sont chargées dans l'objet de type select.
-			}
-			else{
-				alert("Erreur lors de la récupération des catégories.");
-			}
-		}
-	};
-	xhr.open("POST", "../controleurs/ctrl_admin.php", true);
-	// A placer après la méthode open si on utilise la méthode POST.
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
-	xhr.send();
-}*/
-
-/*function getListeImageNom(){
-	var xhr = null;
-
-	xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) {
-			if(xhr.responseText == "OK.") {
-				// Les noms d'image sont chargés dans l'objet de type select.
-			}
-			else{
-				alert("Erreur lors de la récupération des noms d'image.");
-			}
-		}
-	};
-	xhr.open("POST", "../controleurs/ctrl_admin.php", true);
-	// A placer après la méthode open si on utilise la méthode POST.
-	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
-	xhr.send();
-}*/
-
-function creerDiscipline(){
+function creerImage(){
 	var isFormulaireOk = 'true';
-	// On teste le choix le champ disc_nom.
-	if(isFormulaireOk =='true' && document.getElementById('disc_nom').value == ""){
-		alert('Aucun nom n\'a été saisi.');
-		isFormulaireOk = 'false';
-	}
-	// On teste le choix le champ disc_description.
-	if(isFormulaireOk =='true' && document.getElementById('disc_description').value == ""){
+	// On teste le choix le champ img_desc.
+	if(isFormulaireOk =='true' && document.getElementById('img_desc').value == ""){
 		alert('Aucune description n\'a été saisie.');
 		isFormulaireOk = 'false';
 	}
-	// On teste le choix le champ lstCategorie.
-	if(isFormulaireOk =='true' && document.getElementById('disc_categorie').value == ""){
-		alert('Aucune catégorie n\'a été sélectionnée.');
-		isFormulaireOk = 'false';
-	}
-	// On teste le choix le champ lstCategorie.
-	if(isFormulaireOk =='true' && document.getElementById('disc_urlImage').value == ""){
-		alert('Aucune image n\'a été sélectionnée.');
-		isFormulaireOk = 'false';
-	}
-	// Le formulaire a été correctement saisi, on le créé maintenant en base.
-	if(isFormulaireOk){
-		var disc_nom = document.getElementById("disc_nom").value;
-		var disc_description = document.getElementById("disc_description").value;
-		var disc_categorie = document.getElementById("disc_categorie").value;
-		var disc_urlImage = document.getElementById("disc_urlImage").value;
+	/*if(isFormulaireOk =='true') {
+		// Test d'existence du nom de l'image.
+		var imageDescription = document.getElementById("img_desc").value;
 		var xhr = null;
 
 		xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				if(xhr.responseText == "OK - Discipline créée.") {
-					alert("La discipline a été créée.")
+				if(xhr.responseText == "OK - Image disponible.") {
+					alert("Image ajoutée");
 				}
 				else{
-					alert("Erreur lors de la création de la discipline.\n\nErreur :\n\n" + xhr.responseText);
+					alert("Une image du même nom existe déjà.");
+					// alert(xhr.responseText);
+					// Efface le nom de l'image saisi par l'utilisateur.
+					document.getElementById("img_desc").value = "";
 				}
 			}
 		};
 		xhr.open("POST", "../controleurs/ctrl_admin.php", true);
 		// A placer après la méthode open si on utilise la méthode POST.
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		// On transmets les valeurs des champs saisis par l'\utilisateur.
-		xhr.send("disc_nom=" + disc_nom + "&" + "disc_description=" + disc_description + "&" + "disc_categorie=" + disc_categorie + "&" + "disc_urlImage=" + disc_urlImage);
+		// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
+		xhr.send("imageDescription=" + imageDescription);
+	}*/
+	if(isFormulaireOk == 'true') {
+		var fichierCopie = document.getElementById("fichierCopie");
+		var xhr = null;
+
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if(xhr.responseText == "OK - Fichie selectionne.") {
+					alert("Le fichier a bien été sélectionné.");
+				}
+				else{
+					alert("Erreur lors de la sélection du fichier.");
+					alert(xhr.responseText);
+				}
+			}
+		};
+		xhr.open("POST", "../controleurs/ctrl_admin.php", true);
+		// A placer après la méthode open si on utilise la méthode POST.
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		// On transmet les valeurs des champs saisis par l'utilisateur.
+		xhr.send("fichierCopie=" + fichierCopie);
+		isFormulaireOk = 'false';
+	}
+}
+
+function creerDiscipline(){
+	var isFormulaireOk = 'true';
+	// On teste le choix le champ disc_nom.
+	if(isFormulaireOk == 'true' && document.getElementById('disc_nom').value == ""){
+		alert('Aucun nom n\'a été saisi.');
+		isFormulaireOk = 'false';
+	}
+	// On teste le choix le champ disc_description.
+	if(isFormulaireOk == 'true' && document.getElementById('disc_description').value == ""){
+		alert('Aucune description n\'a été saisie.');
+		isFormulaireOk = 'false';
+	}
+	// On teste le choix le champ lstCategorie.
+	if(isFormulaireOk == 'true' && document.getElementById('disc_categorie').value == ""){
+		alert('Aucune catégorie n\'a été sélectionnée.');
+		isFormulaireOk = 'false';
+	}
+	// On teste le choix le champ lstCategorie.
+	if(isFormulaireOk == 'true' && document.getElementById('disc_image').value == ""){
+		alert('Aucune image n\'a été sélectionnée.');
+		isFormulaireOk = 'false';
+	}
+	// Le formulaire a été correctement saisi, on le créé maintenant en base.
+	if(isFormulaireOk == 'true'){
+		var disc_nom = document.getElementById("disc_nom").value;
+		var disc_description = document.getElementById("disc_description").value;
+		var disc_categorie = document.getElementById("disc_categorie").value;
+		var disc_image = document.getElementById("disc_image").value;
+		var xhr = null;
+
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if(xhr.responseText == "OK - Discipline créée.") {
+					alert("La discipline a été créée.");
+					document.getElementById('disc_nom').value = "";
+					document.getElementById('disc_description').value = "";
+					document.getElementById('disc_categorie').value = "";
+					document.getElementById('disc_image').value = "";
+				}
+				else{
+					//alert("Erreur lors de la création de la discipline.\n\nErreur :\n\n" + xhr.responseText);
+				}
+			}
+		};
+		xhr.open("POST", "../controleurs/ctrl_admin.php", true);
+		// A placer après la méthode open si on utilise la méthode POST.
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		// On transmet les valeurs des champs saisis par l'utilisateur.
+		xhr.send("disc_nom=" + disc_nom + "&" + "disc_description=" + disc_description + "&" + "disc_categorie=" + disc_categorie + "&" + "disc_image=" + disc_image);
 	}
 }
 /* ************************************************************************************ */
