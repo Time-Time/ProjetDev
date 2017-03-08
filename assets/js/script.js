@@ -145,7 +145,29 @@ function creerImage(){
 		alert('Aucune description n\'a été saisie.');
 		isFormulaireOk = 'false';
 	}
-	/*if(isFormulaireOk =='true') {
+	/*if(isFormulaireOk == 'true') {
+		var fichierCopie = document.getElementById("fichierCopie");
+		var xhr = null;
+
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				if(xhr.responseText == "OK - Fichie selectionne.") {
+					alert("Le fichier a bien été sélectionné.");
+				}
+				else{
+					alert("Erreur lors de la sélection du fichier.");
+					alert(xhr.responseText);
+				}
+			}
+		};
+		xhr.open("POST", "../controleurs/ctrl_admin.php", true);
+		// A placer après la méthode open si on utilise la méthode POST.
+		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		// On transmet les valeurs des champs saisis par l'utilisateur.
+		xhr.send("fichierCopie=" + fichierCopie);
+	}*/
+	if(isFormulaireOk =='true') {
 		// Test d'existence du nom de l'image.
 		var imageDescription = document.getElementById("img_desc").value;
 		var xhr = null;
@@ -169,29 +191,6 @@ function creerImage(){
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
 		xhr.send("imageDescription=" + imageDescription);
-	}*/
-	if(isFormulaireOk == 'true') {
-		var fichierCopie = document.getElementById("fichierCopie");
-		var xhr = null;
-
-		xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				if(xhr.responseText == "OK - Fichie selectionne.") {
-					alert("Le fichier a bien été sélectionné.");
-				}
-				else{
-					alert("Erreur lors de la sélection du fichier.");
-					alert(xhr.responseText);
-				}
-			}
-		};
-		xhr.open("POST", "../controleurs/ctrl_admin.php", true);
-		// A placer après la méthode open si on utilise la méthode POST.
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		// On transmet les valeurs des champs saisis par l'utilisateur.
-		xhr.send("fichierCopie=" + fichierCopie);
-		isFormulaireOk = 'false';
 	}
 }
 

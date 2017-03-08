@@ -154,10 +154,12 @@
 		return $donnee;
 	}
 	
+	// '.$emplacementImage.'
 	// Insère un tuple dans la table image.
 	function insertImage($bdd, $img_desc){
+		$emplacementImage = "http://localhost/ProjetWeb/assets/img/" . $img_desc;
 		$req = $bdd -> query('
-			INSERT INTO image (img_desc, img_url) VALUES(\''.$img_desc.'\', \'Url par defaut\');
+			INSERT INTO image (img_desc, img_url) VALUES(\''.$img_desc.'\', \''.$emplacementImage.'\');
 			');
 		$req -> closeCursor();
 	}

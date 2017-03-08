@@ -4,7 +4,7 @@
 	require_once("../config/connexion_bd.php");
 
 	// ******************************************************************************** //
-	// 		Vérification existence nom image - AJAX								//
+	// 		Vérification existence et création d'une image - AJAX								//
 	// ******************************************************************************** //
 	if(isset($_POST["imageDescription"])){
 		$ImageDesc = verifImageExist($bdd, $_POST["imageDescription"]);
