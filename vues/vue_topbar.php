@@ -6,18 +6,19 @@
 			<li><a href="index.php">Accueil</a></li>
 			<li class ="dropdown">
 				<a class="dropbtn" href="vue_discipline.php?cat=jonglage">Jonglage</a>
-				<div class= "dropdown-content">
-					<a href="#Bolas">Bolas</a>
-					<a href="vue_discipline.php?cat=jonglage&disc=contact">Contact</a>
-					<a href="vue_discipline.php?cat=jonglage&disc=staff">Staff</a>
+				<div id="jonglage-dropdown" class= "dropdown-content">
+					<a href="vue_discipline.php?cat=jonglage#Bolas">Bolas</a>
+					<a href="vue_discipline.php?cat=jonglage#Contact">Contact</a>
+					<a href="vue_discipline.php?cat=jonglage#Staff">Staff</a>
 				</div>
 			</li>
-			<li><a href="vue_discipline.php?cat=flux&disc=flipyflux">FlipyFlux</a></li>
+			<li><a href="vue_discipline.php?cat=flux#FlipyFlux">FlipyFlux</a></li>
 			<li class ="dropdown">
 				<a class="dropbtn" href="vue_discipline.php?cat=light">Light Toys</a>
-				<div class= "dropdown-content">
-					<a href="vue_discipline.php?cat=light&disc=orbit">Orbit</a>
-					<a href="vue_discipline.php?cat=light&disc=gloves">Gloves</a>
+				<div id="jonglage-dropdown" class= "dropdown-content">
+					<a href="vue_discipline.php?cat=light#Orbit">Orbit</a>
+					<a href="vue_discipline.php?cat=light#Light_gloves">Gloves</a>
+					<a href="vue_discipline.php?cat=light#buugeng">Buugeng</a>
 				</div>
 			</li>
 			<li><a href="vue_galerie.php">Gallerie</a></li>
