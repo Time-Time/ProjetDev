@@ -44,12 +44,17 @@ body {
 }
 
 .container-admin {
-	height: 710px;
+	height: 780px;
 }
 
 .container-form {
 	overflow: hidden;
     padding : 60px 300px;
+}
+
+.container-form-admin {
+	background-color: rgba(67, 72, 82, 0.6);
+	padding: 20px;
 }
 
 .form-control {
