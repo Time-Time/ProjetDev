@@ -140,6 +140,11 @@ function adminVerifDisciplineNom(){
 
 function creerImage(){
 	var isFormulaireOk = 'true';
+	// On teste la sélection d'un fichier.
+	if(isFormulaireOk =='true' && document.getElementById('img_nom').value == "Aucune image sélectionnée"){
+		alert('Aucun fichier n\'a été sélectionné.');
+		isFormulaireOk = 'false';
+	}
 	// On teste le choix le champ img_desc.
 	if(isFormulaireOk =='true' && document.getElementById('img_desc').value == ""){
 		alert('Aucune description n\'a été saisie.');
@@ -162,7 +167,7 @@ function creerImage(){
 			}
 		};
 		xhr.open("POST", "../controleurs/ctrl_admin.php", true);
-		// A placer après la méthode open si on utilise la méthode POST.
+		// A placer après la méthode open si onu tilise la méthode POST.
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		// On transmet les valeurs des champs saisis par l'utilisateur.
 		xhr.send("fichierCopie=" + fichierCopie);
@@ -170,6 +175,7 @@ function creerImage(){
 	if(isFormulaireOk =='true') {
 		// Test d'existence du nom de l'image.
 		var imageDescription = document.getElementById("img_desc").value;
+		var imageNom = document.getElementById('img_nom').value;
 		var xhr = null;
 
 		xhr = new XMLHttpRequest();
@@ -177,6 +183,7 @@ function creerImage(){
 			if (this.readyState == 4 && this.status == 200) {
 				if(xhr.responseText == "OK - Image disponible.") {
 					alert("Image ajoutée");
+					document.getElementById("img_desc").value = "";
 				}
 				else{
 					alert("Une image du même nom existe déjà.");
@@ -190,7 +197,7 @@ function creerImage(){
 		// A placer après la méthode open si on utilise la méthode POST.
 		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		// Ajout de '&' entre les variables à passer en les paramètres sinon ça ne fonctionne pas !!!
-		xhr.send("imageDescription=" + imageDescription);
+		xhr.send("imageDescription=" + imageDescription + "&" + "imageNom=" + imageNom);
 	}
 }
 

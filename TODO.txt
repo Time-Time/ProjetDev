@@ -2,8 +2,10 @@
 
 Derniers points à finir :
 
-Page admin
-	Formulaire Image :
-		==>	Le champ URL d'une image n'est pas paramétrable ("Url par defaut" lors d'un ajout d'image).
-			Appeler la fonction de déplacement d'image via de l'AJAX et non directement par la vue.
-		==> Vérifier EN PREMIER champ desc image saisi puis vérifier qu'une image est saisie aussi (actuellement on peut ajouter une image même si le fichier n'est pas transféré dans le dossier /img).
+	Page admin
+		Formulaire Image :
+			==>	Appeler la fonction de déplacement d'image via de l'AJAX ( ==> Ctl Admin : isset($_FILES["fichierCopie"])) pour réellement déplacer un fichier dans le dossier des images.
+			
+			==>	Léger décallage entre les champ de type label et input dans le formulaire de saisie d'image.
+			
+			==>	Détail : Pas de tri effectué sur les types de fichiers que l'on peut ajouter à la base en tant que "image". (Ex : Ajout d'un fichier *.txt)

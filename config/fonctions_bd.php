@@ -156,8 +156,8 @@
 	
 	// '.$emplacementImage.'
 	// Insère un tuple dans la table image.
-	function insertImage($bdd, $img_desc){
-		$emplacementImage = "http://localhost/ProjetWeb/assets/img/" . $img_desc;
+	function insertImage($bdd, $img_desc, $img_url){
+		$emplacementImage = "http://localhost/ProjetWeb/assets/img/" . $img_url;
 		$req = $bdd -> query('
 			INSERT INTO image (img_desc, img_url) VALUES(\''.$img_desc.'\', \''.$emplacementImage.'\');
 			');

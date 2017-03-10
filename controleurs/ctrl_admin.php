@@ -6,12 +6,12 @@
 	// ******************************************************************************** //
 	// 		Vérification existence et création d'une image - AJAX								//
 	// ******************************************************************************** //
-	if(isset($_POST["imageDescription"])){
+	if(isset($_POST["imageDescription"]) && isset($_POST["imageNom"])){
 		$ImageDesc = verifImageExist($bdd, $_POST["imageDescription"]);
 			// Relève le nombre d'occurrence de la discipline.
 		$nbImageDesc = $ImageDesc['nbImage'];
 		if($nbImageDesc == 0){
-			insertImage($bdd, $_POST["imageDescription"]);
+			insertImage($bdd, $_POST["imageDescription"], $_POST["imageNom"]);
 			echo 'OK - Image disponible.';
 		}else{
 			echo 'KO - Une image du même nom existe déjà.';
