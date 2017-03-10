@@ -17,7 +17,7 @@
 				<a class="dropbtn" href="vue_discipline.php?cat=light">Light Toys</a>
 				<div id="jonglage-dropdown" class= "dropdown-content">
 					<a href="vue_discipline.php?cat=light#Orbit">Orbit</a>
-					<a href="vue_discipline.php?cat=light#Light_gloves">Gloves</a>
+					<a href="vue_discipline.php?cat=light#Light%20gloves">Gloves</a>
 					<a href="vue_discipline.php?cat=light#buugeng">Buugeng</a>
 				</div>
 			</li>
