@@ -1,11 +1,1 @@
 ﻿Tâches restantes :
-
-Derniers points à finir :
-
-	Page admin
-		Formulaire Image :
-			==>	Appeler la fonction de déplacement d'image via de l'AJAX ( ==> Ctl Admin : isset($_FILES["fichierCopie"])) pour réellement déplacer un fichier dans le dossier des images.
-			
-			==>	Léger décallage entre les champ de type label et input dans le formulaire de saisie d'image.
-			
-			==>	Détail : Pas de tri effectué sur les types de fichiers que l'on peut ajouter à la base en tant que "image". (Ex : Ajout d'un fichier *.txt)

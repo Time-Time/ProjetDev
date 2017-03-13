@@ -86,15 +86,16 @@
 			echo "Le fichier transféré partiellemnt";
 			break;
 			default :
-			echo "Téléchargement OK";
+			echo "Téléchargement OK. <br/><br/>";
 		}
 		$cheminDossierDepart = $_FILES['fichierCopie']['tmp_name'];
 		$cheminDossierDestination = "../assets/img/" . $_FILES['fichierCopie']['name'];
 		$cheminImageBase = "http://localhost/ProjetWeb/assets/img/" . $_FILES['fichierCopie']['name'];
 		$resultat = move_uploaded_file($cheminDossierDepart, $cheminDossierDestination);
 		if ($resultat){
-			insertImage($bdd, $cheminImageBase);
 			echo "OK - Fichie selectionne.";
+			header('Location: ../vues/vue_admin.php');
 		}
+		header('Location: ../vues/vue_admin.php');
 	}
 ?>

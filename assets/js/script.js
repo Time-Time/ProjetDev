@@ -145,34 +145,28 @@ function creerImage(){
 		alert('Aucun fichier n\'a été sélectionné.');
 		isFormulaireOk = 'false';
 	}
+	// On teste l'extension du fichier sélectionné.
+	if(isFormulaireOk == 'true' && document.getElementById('img_nom').value != "")
+	{
+		var nomCompletFichier = document.getElementById('img_nom').value;
+		var extension = nomCompletFichier.substring(nomCompletFichier.lastIndexOf("."));
+		if(extension == ".jpg" || extension == ".png")
+		{
+			// alert('Image valide. Extension : ' + extension);
+		}
+		else
+		{
+			alert('Le fichier saisi n\'est pas une image.\n\nExtensions autorisées : *.jpg, *.png.');
+			isFormulaireOk = 'false';
+			document.getElementById('img_nom').value = "Aucune image sélectionnée";
+		}
+	}
 	// On teste le choix le champ img_desc.
-	if(isFormulaireOk =='true' && document.getElementById('img_desc').value == ""){
+	if(isFormulaireOk == 'true' && document.getElementById('img_desc').value == ""){
 		alert('Aucune description n\'a été saisie.');
 		isFormulaireOk = 'false';
 	}
-	/*if(isFormulaireOk == 'true') {
-		var fichierCopie = document.getElementById("fichierCopie");
-		var xhr = null;
-
-		xhr = new XMLHttpRequest();
-		xhr.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				if(xhr.responseText == "OK - Fichie selectionne.") {
-					alert("Le fichier a bien été sélectionné.");
-				}
-				else{
-					alert("Erreur lors de la sélection du fichier.");
-					alert(xhr.responseText);
-				}
-			}
-		};
-		xhr.open("POST", "../controleurs/ctrl_admin.php", true);
-		// A placer après la méthode open si onu tilise la méthode POST.
-		xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-		// On transmet les valeurs des champs saisis par l'utilisateur.
-		xhr.send("fichierCopie=" + fichierCopie);
-	}*/
-	if(isFormulaireOk =='true') {
+	if(isFormulaireOk == 'true') {
 		// Test d'existence du nom de l'image.
 		var imageDescription = document.getElementById("img_desc").value;
 		var imageNom = document.getElementById('img_nom').value;
