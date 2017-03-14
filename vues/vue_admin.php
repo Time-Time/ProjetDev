@@ -21,12 +21,13 @@
 								Choisir une image
 								<input type="file" name="fichierCopie" id="fichierCopie"/>
 							</label>
-							<input class="custom-file-upload-name form-control form-control-unselectable" type="text" value="Aucune image sélectionnée" name="img_nom" id="img_nom" disabled="true" required="required" maxlength="45">
+							<input class="custom-file-upload-name form-control form-control-unselectable" type="text" value="Aucune image sélectionnée" id="img_nom"
+								disabled="true" required="required" maxlength="45">
 							</input>
-							<input class="form-control form-control-selectable" style="width:300px; float: right;" type="text" name="img_desc" id="img_desc" placeholder="Description de l'image"
+							<input class="form-control form-control-selectable" style="width:300px; float: right;" type="text" id="img_desc" placeholder="Description de l'image"
 								required="required" autofocus="autofocus" maxlength="45"><br/><br/>
-							<input class="btn btn_block form-control-selectable" style="width: 200px;" type="button" value="Ajouter l'image" onclick="creerImage()"/><br/>
-						</form>
+							<input class="btn btn_block form-control-selectable" style="width: 200px;" type="submit" value="Ajouter l'image" onclick="creerImage()"/><br/>
+						</form enctype="multipart/form-data">
 					</div>
 				</div>
 				<p style="border-bottom: 0px solid white"></p><br/>
