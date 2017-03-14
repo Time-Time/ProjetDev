@@ -17,7 +17,7 @@
 						<!-- <form action="../controleurs/ctrl_admin.php" method="post" enctype="multipart/form-data"> -->
 						<form enctype="multipart/form-data">
 							<input type="hidden" name="MAX_FILE_SIZE" value="10000000"/><br/>     <!-- 10 Mo ==>taille maximale du fichier en octets, à mettre avant l'objet input de type file --> 
-							<label id="lbl_fichierCopie" class="custom-file-upload form-control" type="text">
+							<label style="height:auto;" id="lbl_fichierCopie" class="custom-file-upload form-control" type="text">
 								Choisir une image
 								<input type="file" name="fichierCopie" id="fichierCopie"/>
 							</label>

@@ -1,0 +1,4 @@
+Connexion en tant qu'administrateur :
+pseudo = panda
+mdp = panda
+
