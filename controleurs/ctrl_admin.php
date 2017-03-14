@@ -4,7 +4,7 @@
 	require_once("../config/connexion_bd.php");
 
 	// ******************************************************************************** //
-	// 		Vérification existence et création d'une image - AJAX								//
+	// 		Vérification existence et création d'une image - AJAX						//
 	// ******************************************************************************** //
 	if(isset($_POST["imageDescription"]) && isset($_POST["imageNom"])){
 		$ImageDesc = verifImageExist($bdd, $_POST["imageDescription"]);
@@ -14,7 +14,7 @@
 			insertImage($bdd, $_POST["imageDescription"], $_POST["imageNom"]);
 			echo 'OK - Image disponible.';
 		}else{
-			echo 'KO - Une image du même nom existe déjà.';
+			echo 'NOK - Image indisponible.';
 		}
 	}
 
@@ -30,6 +30,7 @@
 		}else{
 			echo 'KO - Cette discipline existe déjà.';
 		}
+		unset($_POST["disciplineNom"]);
 	}
 
 	// ******************************************************************************** //
@@ -72,6 +73,7 @@
 	// 		Copie d'un fichier sélectionné dans le répertoire des images				//
 	// ******************************************************************************** //
 	if(isset($_FILES["fichierCopie"])){
+		echo '<script>console.log("Your stuff here")</script>';
 		switch ($_FILES['fichierCopie']['error']) {
 			case UPLOAD_ERR_NO_FILE:
 			echo "Fichier manquant";
@@ -91,11 +93,12 @@
 		$cheminDossierDepart = $_FILES['fichierCopie']['tmp_name'];
 		$cheminDossierDestination = "../assets/img/" . $_FILES['fichierCopie']['name'];
 		$cheminImageBase = "http://localhost/ProjetWeb/assets/img/" . $_FILES['fichierCopie']['name'];
+		echo "<script>console.log(\"blah\");</script>";
 		$resultat = move_uploaded_file($cheminDossierDepart, $cheminDossierDestination);
 		if ($resultat){
 			echo "OK - Fichie selectionne.";
-			header('Location: ../vues/vue_admin.php');
 		}
 		header('Location: ../vues/vue_admin.php');
 	}
+
 ?>

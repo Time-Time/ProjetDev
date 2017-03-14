@@ -30,7 +30,6 @@ function getMiniatures() {
 
 			/* Insertion des images dans l'emplacement de stockage des miniatures */
 			document.getElementById("miniatures").innerHTML = xmlHTTP.responseText;
-			
 			//init de l'image courante du carousel
 			carousel('buugeng');
 		}
@@ -52,7 +51,6 @@ function carousel(img_id) {
 
 	// miniature cliquée
 	var aAfficher = document.getElementById(img_id);
-
 	var url = "../controleurs/ajax.php";
 	var params = "img_id="+img_id;
 	xmlHTTP.open("POST", url, true);

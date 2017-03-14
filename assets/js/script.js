@@ -177,14 +177,12 @@ function creerImage(){
 			if (this.readyState == 4 && this.status == 200) {
 				if(xhr.responseText == "OK - Image disponible.") {
 					alert("Image ajoutée");
-					document.getElementById("img_desc").value = "";
 				}
 				else{
-					alert("Une image du même nom existe déjà.");
-					// alert(xhr.responseText);
-					// Efface le nom de l'image saisi par l'utilisateur.
-					document.getElementById("img_desc").value = "";
+					alert(xhr.responseText);
 				}
+				// Efface le nom de l'image saisi par l'utilisateur.
+				document.getElementById("img_desc").value = "";
 			}
 		};
 		xhr.open("POST", "../controleurs/ctrl_admin.php", true);

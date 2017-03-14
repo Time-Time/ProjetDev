@@ -9,8 +9,6 @@
 				<h1 class="title">Categories de Flux</h1>
 			</div>
 		</div>
-		<div id="main">
-			
-		</div>
+		<div id="main"></div>
 	</body>
 <?php require_once("vue_footer.php"); ?>

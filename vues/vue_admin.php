@@ -15,17 +15,16 @@
 					<div style="margin-bottom: 0px" class="form-group">
 					<div class="label-admin">Ajouter une image</div>
 						<!-- <form action="../controleurs/ctrl_admin.php" method="post" enctype="multipart/form-data"> -->
-						<form enctype="multipart/form-data">
-							<input type="hidden" name="MAX_FILE_SIZE" value="10000000"/><br/>     <!-- 10 Mo ==>taille maximale du fichier en octets, à mettre avant l'objet input de type file --> 
+						<form action="../controleurs/ctrl_admin.php" method="POST" enctype="multipart/form-data">
+ 							<input type="hidden" name="MAX_FILE_SIZE" value="10000000"/><br/>     <!-- 10 Mo ==>taille maximale du fichier en octets --> 
 							<label style="height:auto;" id="lbl_fichierCopie" class="custom-file-upload form-control" type="text">
 								Choisir une image
 								<input type="file" name="fichierCopie" id="fichierCopie"/>
 							</label>
 							<input class="custom-file-upload-name form-control form-control-unselectable" type="text" value="Aucune image sélectionnée" id="img_nom"
-								disabled="true" required="required" maxlength="45">
+ 								disabled="true" required="required" maxlength="45">
 							</input>
-							<input class="form-control form-control-selectable" style="width:300px; float: right;" type="text" id="img_desc" placeholder="Description de l'image"
-								required="required" autofocus="autofocus" maxlength="45"><br/><br/>
+							<input class="form-control form-control-selectable" style="width:300px; float: right;" type="text" id="img_desc" placeholder="Description de l'image" srequired="required" autofocus="autofocus" maxlength="45"><br/><br/>
 							<input class="btn btn_block form-control-selectable" style="width: 200px;" type="submit" value="Ajouter l'image" onclick="creerImage()"/><br/>
 						</form enctype="multipart/form-data">
 					</div>
@@ -56,13 +55,13 @@
 			</div>
 <?php require_once("vue_footer.php"); ?>
 		</div>
-							<script type="text/javascript">
-								document.getElementById('fichierCopie').onchange = function () {
-									var nomCompletFichier = this.value.replace("C:\\fakepath\\", "");
-									if(nomCompletFichier.length > 0)
-									{
-										document.getElementById('img_nom').value  = nomCompletFichier;
-									}
-								};
-							</script>
+		<script type="text/javascript">
+			document.getElementById('fichierCopie').onchange = function () {
+				var nomCompletFichier = this.value.replace("C:\\fakepath\\", "");
+				if(nomCompletFichier.length > 0)
+				{
+					document.getElementById('img_nom').value  = nomCompletFichier;
+				}
+			};
+		</script>
 	</body>

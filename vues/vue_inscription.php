@@ -8,7 +8,6 @@
 		</div>
 		<div id="main">
 			<div class="container container-form">
-				<!--<form id="signin" class="form-signin" action="../controleurs/ctrl_inscription.php" charset="UTF-8" method="POST">-->
 				<div class="form-group">
 					<input class="form-control form-control-selectable" type="text" name="pseudo" id="user_username" placeholder="Nom d'utilisateur" required="required" autofocus="autofocus" maxlength="45">
 				</div>
@@ -20,7 +19,6 @@
 				</div>
 				<input id="btn_inscription" class="btn btn_block form-control-selectable" type="button" name="commit" value="s'inscrire" onclick="inscriptionVerifIdentifiants()">
 				</input>
-				<!--</form>-->
 			</div>
 		</div>
 	</body>

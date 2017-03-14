@@ -10,7 +10,6 @@
 		</div>
 	</div>
 	<div id="main" style="width:1500px">
-
 		<div class="container-circles">
 			<a href="vue_discipline.php?cat=jonglage" class="lien-categorie">
 				<p>Jonglage</p>
